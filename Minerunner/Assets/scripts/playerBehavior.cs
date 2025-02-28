@@ -4,12 +4,6 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-
-
-
-public class playerBehavior : MonoBehaviour
-
-
 public class PlayerBehavior : MonoBehaviour
 
 {
