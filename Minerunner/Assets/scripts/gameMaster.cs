@@ -8,7 +8,8 @@ public class gameMaster : MonoBehaviour
     public static int totalMines;
     public GameObject[] cells;  // Manually assigned thorugh Unity
     public GameObject startCell;
-    public Material revealedMaterial;
+    [SerializeField] public Material revealedMaterial;
+    [SerializeField] public Material hiddenMaterial;
     private bool goalReached;
     private bool playerDead;
     private Dictionary<Vector3, GameObject> cellPositionMap = new Dictionary<Vector3, GameObject>(); // Location of all cells
@@ -59,6 +60,7 @@ public class gameMaster : MonoBehaviour
         //store locaiton of all cells
         foreach (GameObject cell in cells) {
             cellPositionMap[cell.transform.position] = cell;
+            cell.GetComponent<MeshRenderer>().material = hiddenMaterial;
         }
 
         // These are our 8 directions, in the order of what they are stored as in the list
