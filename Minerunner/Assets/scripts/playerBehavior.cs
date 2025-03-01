@@ -12,7 +12,6 @@ public class PlayerBehavior : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject playerCell;
-    public Material revealedMaterial;
 
     //private variables
     private gameMaster gameMaster;
@@ -203,7 +202,7 @@ public class PlayerBehavior : MonoBehaviour
 
 
     private void reveal(GameObject cell) {
-        cell.GetComponent<MeshRenderer>().material = revealedMaterial;
+        cell.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
     }
 
 

@@ -7,6 +7,8 @@ public class gameMaster : MonoBehaviour
 {
     public static int totalMines;
     public GameObject[] cells;  // Manually assigned thorugh Unity
+    public GameObject startCell;
+    public Material revealedMaterial;
     private bool goalReached;
     private bool playerDead;
     private Dictionary<Vector3, GameObject> cellPositionMap = new Dictionary<Vector3, GameObject>(); // Location of all cells
@@ -15,6 +17,7 @@ public class gameMaster : MonoBehaviour
     public Dictionary<GameObject, GameObject[]> getCellAdjacencyMap() {
         return cellAdjacencyMap;
     }
+
     public void setMines(int mines)
     {
         totalMines = mines;
@@ -40,6 +43,7 @@ public class gameMaster : MonoBehaviour
         totalMines = 0;
         goalReached = false;
         playerDead = false;
+        startCell.GetComponent<MeshRenderer>().material = revealedMaterial; // should be replaced with reveal function in future
         createCellAdjacencyMap();
     }
 
