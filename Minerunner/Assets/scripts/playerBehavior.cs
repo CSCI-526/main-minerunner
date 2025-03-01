@@ -11,8 +11,8 @@ public class PlayerBehavior : MonoBehaviour
 
     // Start is called before the first frame update
 
-    // var set through unity
     public GameObject playerCell;
+    public Material revealedMaterial;
 
     //private variables
     private gameMaster gameMaster;
@@ -34,6 +34,7 @@ public class PlayerBehavior : MonoBehaviour
 
     {
         gameMaster = FindObjectOfType<gameMaster>();
+
     }
 
 
@@ -180,10 +181,9 @@ public class PlayerBehavior : MonoBehaviour
             GameObject targetCell = adjacentCells[direction];
 
             if (targetCell != null) {
-                // Move the player to the new cell
                 transform.position = targetCell.transform.position;
-
-                playerCell = targetCell; // Update player's current cell
+                playerCell = targetCell;
+                reveal(targetCell);
             }
         }
 
@@ -202,10 +202,9 @@ public class PlayerBehavior : MonoBehaviour
     }
 
 
-
-
-
-
+    private void reveal(GameObject cell) {
+        cell.GetComponent<MeshRenderer>().material = revealedMaterial;
+    }
 
 
     public void UseDetonator()
