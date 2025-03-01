@@ -11,16 +11,16 @@ public class PlayerBehavior : MonoBehaviour
 
     // Start is called before the first frame update
 
+    // var set through unity
+    public GameObject playerCell;
 
     //private variables
-
+    private gameMaster gameMaster;
 
     private int lives = 3;  //default
-
-
     private Dictionary<string, int> inventory = new Dictionary<string, int>(); //powerup-inventory
 
-
+    
 
 
 
@@ -30,18 +30,11 @@ public class PlayerBehavior : MonoBehaviour
     //private int moveRange = 1;
 
 
-
-
     void Start()
 
     {
-
-
-
-
+        gameMaster = FindObjectOfType<gameMaster>();
     }
-
-
 
 
     // Update is called once per frame
@@ -53,7 +46,7 @@ public class PlayerBehavior : MonoBehaviour
 
 
 
-
+        handlePlayerMovement();
         //handle player movement
 
 
@@ -164,15 +157,35 @@ public class PlayerBehavior : MonoBehaviour
 
 
 
+    private void handlePlayerMovement() {
+        if (Input.GetKeyDown(KeyCode.W)) movePlayer(1); // Up
+        if (Input.GetKeyDown(KeyCode.A)) movePlayer(3); // Left
+        if (Input.GetKeyDown(KeyCode.D)) movePlayer(4); // Right
+        if (Input.GetKeyDown(KeyCode.S)) movePlayer(6); // Down
+    }
 
-    public void movePlayer()
-
-
+    private void movePlayer(int direction)
     {
+        // These are directions that correspond to indecies in the cellAdjacencyMap in gameMaster
+        //    1    up
+        //    3    left
+        //    4    right
+        //    6    down
 
 
         //movement logic
+        Dictionary<GameObject, GameObject[]> cellAdjacencyMap = gameMaster.getCellAdjacencyMap();
 
+        if (cellAdjacencyMap.TryGetValue(playerCell, out GameObject[] adjacentCells)) {
+            GameObject targetCell = adjacentCells[direction];
+
+            if (targetCell != null) {
+                // Move the player to the new cell
+                transform.position = targetCell.transform.position;
+
+                playerCell = targetCell; // Update player's current cell
+            }
+        }
 
         // If cell has power-up, collect it
 

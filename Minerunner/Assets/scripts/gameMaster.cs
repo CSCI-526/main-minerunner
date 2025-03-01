@@ -6,13 +6,15 @@ using UnityEngine;
 public class gameMaster : MonoBehaviour
 {
     public static int totalMines;
+    public GameObject[] cells;  // Manually assigned thorugh Unity
     private bool goalReached;
     private bool playerDead;
-    public GameObject[] cells;  // Manually assigned thorugh Unity
     private Dictionary<Vector3, GameObject> cellPositionMap = new Dictionary<Vector3, GameObject>(); // Location of all cells
     private Dictionary<GameObject, GameObject[]> cellAdjacencyMap = new Dictionary<GameObject, GameObject[]>();
     
-
+    public Dictionary<GameObject, GameObject[]> getCellAdjacencyMap() {
+        return cellAdjacencyMap;
+    }
     public void setMines(int mines)
     {
         totalMines = mines;
