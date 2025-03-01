@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class uiMaster : MonoBehaviour
 {
+    public GameObject[] cells;  // Assign all GameObjects in the Unity Inspector
+    
     // Start is called before the first frame update
     void Start()
     {
