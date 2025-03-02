@@ -8,7 +8,8 @@ public class PlayerBehavior : MonoBehaviour
     // Start is called before the first frame update
     public GameObject playerCell;
     public GameObject playerCursorPrefab;
-    public float cursorHeight = 0.8f;
+    public float cursorHeight;
+    public int movementRange;
     //private variables
     private gameMaster gameMaster;
     private GameObject playerCursor = null;
@@ -97,7 +98,7 @@ public class PlayerBehavior : MonoBehaviour
         if (cellAdjacencyMap.TryGetValue(cursorCell, out GameObject[] adjacentCells)) {
             GameObject targetCell = adjacentCells[direction];
 
-            if (targetCell != null) {
+            if (targetCell != null && isInRange(targetCell)) {
                 playerCursor.transform.position = new Vector3(targetCell.transform.position.x, cursorHeight, targetCell.transform.position.z);
                 cursorCell = targetCell;
             }
@@ -113,6 +114,14 @@ public class PlayerBehavior : MonoBehaviour
         playerCursor = Instantiate(playerCursorPrefab);
         playerCursor.transform.position = new Vector3(playerCell.transform.position.x, cursorHeight, playerCell.transform.position.z);
         cursorCell = playerCell;
+    }
+
+    private bool isInRange(GameObject targetCell) {
+        int xDiff = (int) Mathf.Abs(playerCell.transform.position.x - targetCell.transform.position.x);
+        int zDiff = (int) Mathf.Abs(playerCell.transform.position.z - targetCell.transform.position.z);
+        int totalDiff = xDiff + zDiff;
+
+        return totalDiff <= movementRange;
     }
 
     private void reveal(GameObject cell) {
