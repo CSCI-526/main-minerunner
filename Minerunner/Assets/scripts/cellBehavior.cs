@@ -11,12 +11,16 @@ public class cellBehavior : MonoBehaviour
     private int numMines;
     // public Player player;
     private gameMaster gameMaster;
+    private PlayerBehavior playerBehavior;
+    private uiMaster uiMaster;
     // Start is called before the first frame update
     void Start()
     {
         //sets revealed status to false immediately.
         revealed = false;
         gameMaster = FindObjectOfType<gameMaster>();
+        playerBehavior = FindObjectOfType<PlayerBehavior>();
+        uiMaster = FindObjectOfType<uiMaster>();
         // link the player object to the existing object
         //player = FindObjectOfType<Player>();
         // gamemaster = FindObjectOfType<GameMaster>();
@@ -37,8 +41,19 @@ public class cellBehavior : MonoBehaviour
                  //    gamemaster.end() } 
                  // else {
                  //    player.setLives() }
+
+                if (playerBehavior.GetComponent<PlayerBehavior>().getLives() <= 0)
+                {
+                    gameMaster.GetComponent<gameMaster>().endGame();
+                }
+                else
+                {
+                    playerBehavior.GetComponent<PlayerBehavior>().setLives(playerBehavior.GetComponent<PlayerBehavior>().getLives() - 1);
+                    uiMaster.GetComponent<uiMaster>().RemoveLife();
+                }
+                hasMine = false;
             }
-            hasMine = false;
+            hasMine = true;
             //checks in a range if there are other cells containing mines and explodes them based on distance. 
         }
     private void PowerUp()
