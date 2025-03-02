@@ -289,7 +289,7 @@ Transform:
   m_GameObject: {fileID: 180562439}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.36, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1372,9 +1372,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2051335029}
     - target: {fileID: 4299903885700593483, guid: 75b34198aa48c0d4da56f9a80b977d99, type: 3}
+      propertyPath: cursorHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4299903885700593483, guid: 75b34198aa48c0d4da56f9a80b977d99, type: 3}
       propertyPath: revealedMaterial
       value: 
       objectReference: {fileID: 2100000, guid: a5c3ebab4c8e46f47abb46fdad2fd6c3, type: 2}
+    - target: {fileID: 4299903885700593483, guid: 75b34198aa48c0d4da56f9a80b977d99, type: 3}
+      propertyPath: playerCursorPrefab
+      value: 
+      objectReference: {fileID: 1442383059414676243, guid: 4c8b43abf7671fe4eba77f92a9bd013e, type: 3}
     - target: {fileID: 4718352620125094395, guid: 75b34198aa48c0d4da56f9a80b977d99, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2761,6 +2769,7 @@ MonoBehaviour:
   - {fileID: 1185427863}
   startCell: {fileID: 2051335029}
   revealedMaterial: {fileID: 2100000, guid: a5c3ebab4c8e46f47abb46fdad2fd6c3, type: 2}
+  hiddenMaterial: {fileID: 2100000, guid: 54dfb26bc5bc4324f939a67f9f530d07, type: 2}
 --- !u!1001 &1854378000
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44,8 +44,8 @@ public class gameMaster : MonoBehaviour
         totalMines = 0;
         goalReached = false;
         playerDead = false;
-        startCell.GetComponent<MeshRenderer>().material = revealedMaterial; // should be replaced with reveal function in future
         createCellAdjacencyMap();
+        startCell.GetComponent<MeshRenderer>().material = revealedMaterial; // should be replaced with reveal function in future
     }
 
     // Update is called once per frame
