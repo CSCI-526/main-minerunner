@@ -6,19 +6,26 @@ using UnityEngine;
 
 public class cellBehavior : MonoBehaviour
 {
-    private bool hasMine, hasPowerUp, empty, revealed, flagged, isGoal, playerOn;
+    private bool hasPowerUp, empty, revealed, flagged, isGoal, playerOn;
+    public bool hasMine;
     private int numMines;
     // public Player player;
-    // public GameMaster gamesmaster;
+    private gameMaster gameMaster;
     // Start is called before the first frame update
     void Start()
     {
         //sets revealed status to false immediately.
         revealed = false;
+        gameMaster = FindObjectOfType<gameMaster>();
         // link the player object to the existing object
         //player = FindObjectOfType<Player>();
         // gamemaster = FindObjectOfType<GameMaster>();
 
+    }
+
+    public bool gethasMine()
+    {
+        return hasMine;
     }
 
     // Update is called once per frame
@@ -48,5 +55,20 @@ public class cellBehavior : MonoBehaviour
         {
             //calls player.addPowerup()
         }
+    }
+
+    public void reveal()
+    {
+        if (gameMaster.startCell == gameObject)
+        {
+            
+            return;
+        }
+        else if(gameMaster.endCell == gameObject)
+        {
+            gameMaster.setGoal(true);
+            return;
+        }
+        gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
     }
 }     

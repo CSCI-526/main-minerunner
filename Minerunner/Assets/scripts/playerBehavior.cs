@@ -82,7 +82,7 @@ public class PlayerBehavior : MonoBehaviour
             if (targetCell != null) {
                 transform.position = targetCell.transform.position;
                 playerCell = targetCell;
-                reveal(targetCell);
+                targetCell.GetComponent<cellBehavior>().reveal();
             }
         }
 
@@ -93,9 +93,9 @@ public class PlayerBehavior : MonoBehaviour
     }
 
 
-    private void reveal(GameObject cell) {
+    /*private void reveal(GameObject cell) {
         cell.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
-    }
+    }*/
 
 
     public void UseDetonator()

@@ -8,7 +8,10 @@ public class gameMaster : MonoBehaviour
     public static int totalMines;
     public GameObject[] cells;  // Manually assigned thorugh Unity
     public GameObject startCell;
+    public GameObject endCell;
     [SerializeField] public Material revealedMaterial;
+    [SerializeField] public Material startMaterial;
+    [SerializeField] public Material endMaterial;
     [SerializeField] public Material hiddenMaterial;
     private bool goalReached;
     private bool playerDead;
@@ -29,6 +32,11 @@ public class gameMaster : MonoBehaviour
         return totalMines;
     }
 
+    public void setGoal(bool goal)
+    {
+        goalReached = goal;
+    }
+
     public bool endGame()
     {
         //Maybe split this into 2 cases later
@@ -44,14 +52,16 @@ public class gameMaster : MonoBehaviour
         totalMines = 0;
         goalReached = false;
         playerDead = false;
-        startCell.GetComponent<MeshRenderer>().material = revealedMaterial; // should be replaced with reveal function in future
         createCellAdjacencyMap();
+        startCell.GetComponent<MeshRenderer>().material = startMaterial; // should be replaced with reveal function in future
+        endCell.GetComponent<MeshRenderer>().material = endMaterial;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Might call getLives from player to set playerDead here
+        endGame();
     }
 
     // function to create adjacency map for grid
