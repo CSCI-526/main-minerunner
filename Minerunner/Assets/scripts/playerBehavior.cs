@@ -47,6 +47,16 @@ public class PlayerBehavior : MonoBehaviour
         }
     }
 
+    public void decreaseLives(int damage)
+    {
+        lives -= damage;
+        lives = Mathf.Max(0, lives);
+        if (lives == 0)
+        {
+            gameMaster.playerDead = true;
+        }
+    }
+
 
     //add powerup to inventory
     public void addPowerup(string powerupType)
@@ -78,7 +88,7 @@ public class PlayerBehavior : MonoBehaviour
         removeObject(playerCursor);
         this.transform.position = cursorCell.transform.position;
         playerCell = cursorCell;
-        reveal(playerCell);
+        playerCell.GetComponent<cellBehavior>().reveal();
     }
 
     private void moveCursor(int direction) {
@@ -124,9 +134,9 @@ public class PlayerBehavior : MonoBehaviour
         return totalDiff <= movementRange;
     }
 
-    private void reveal(GameObject cell) {
+    /*private void reveal(GameObject cell) {
         cell.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
-    }
+    }*/
 
 
     public void UseDetonator()
