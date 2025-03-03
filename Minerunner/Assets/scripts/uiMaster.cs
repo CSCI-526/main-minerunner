@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class uiMaster : MonoBehaviour
 {
@@ -63,5 +64,9 @@ public class uiMaster : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void restartGame() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

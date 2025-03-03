@@ -72,6 +72,10 @@ public class PlayerBehavior : MonoBehaviour
     }
 
     private void handlePlayerMovement() {
+        if (gameMaster.goalReached || gameMaster.playerDead) {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.W)) moveCursor(1); // Up
         if (Input.GetKeyDown(KeyCode.A)) moveCursor(3); // Left
         if (Input.GetKeyDown(KeyCode.D)) moveCursor(4); // Right
@@ -100,14 +104,13 @@ public class PlayerBehavior : MonoBehaviour
         //    6    down
         
         if (playerCursor == null) {
-            InstantiatePlayerCursor();
+            instantiatePlayerCursor();
         }
 
         
         Dictionary<GameObject, GameObject[]> cellAdjacencyMap = gameMaster.getCellAdjacencyMap();
 
         if (cellAdjacencyMap.TryGetValue(cursorCell, out GameObject[] adjacentCells)) {
-            Debug.Log("Reached!");
             GameObject targetCell = adjacentCells[direction];
 
             if (targetCell != null && isInRange(targetCell)) {
@@ -122,7 +125,7 @@ public class PlayerBehavior : MonoBehaviour
         obejct = null;
     }
 
-    private void InstantiatePlayerCursor() {
+    private void instantiatePlayerCursor() {
         playerCursor = Instantiate(playerCursorPrefab);
         playerCursor.transform.position = new Vector3(playerCell.transform.position.x, cursorHeight, playerCell.transform.position.z);
         cursorCell = playerCell;
@@ -139,7 +142,6 @@ public class PlayerBehavior : MonoBehaviour
     /*private void reveal(GameObject cell) {
         cell.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
     }*/
-
 
     public void UseDetonator()
     {
