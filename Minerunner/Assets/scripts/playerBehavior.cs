@@ -12,6 +12,7 @@ public class PlayerBehavior : MonoBehaviour
     public int movementRange;
     //private variables
     private gameMaster gameMaster;
+    private uiMaster uiMaster;
     private GameObject playerCursor = null;
     private GameObject cursorCell;
     private int lives = 3;  //default
@@ -22,6 +23,7 @@ public class PlayerBehavior : MonoBehaviour
     void Start()
     {
         gameMaster = FindObjectOfType<gameMaster>();
+        uiMaster = FindObjectOfType<uiMaster>();
     }
     // Update is called once per frame
 
@@ -51,6 +53,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         lives -= damage;
         lives = Mathf.Max(0, lives);
+        uiMaster.loseLife();
         if (lives == 0)
         {
             gameMaster.playerDead = true;
