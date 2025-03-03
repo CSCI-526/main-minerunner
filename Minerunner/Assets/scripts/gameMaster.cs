@@ -13,8 +13,9 @@ public class gameMaster : MonoBehaviour
     [SerializeField] public Material startMaterial;
     [SerializeField] public Material endMaterial;
     [SerializeField] public Material hiddenMaterial;
+
+    public bool playerDead;
     private bool goalReached;
-    private bool playerDead;
     private Dictionary<Vector3, GameObject> cellPositionMap = new Dictionary<Vector3, GameObject>(); // Location of all cells
     private Dictionary<GameObject, GameObject[]> cellAdjacencyMap = new Dictionary<GameObject, GameObject[]>();
     
@@ -37,7 +38,7 @@ public class gameMaster : MonoBehaviour
         goalReached = goal;
     }
 
-    public bool endGame()
+    private bool endGame()
     {
         //Maybe split this into 2 cases later
         if (goalReached || playerDead)

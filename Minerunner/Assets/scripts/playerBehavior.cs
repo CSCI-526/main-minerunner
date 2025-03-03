@@ -43,6 +43,16 @@ public class PlayerBehavior : MonoBehaviour
         }
     }
 
+    public void decreaseLives(int damage)
+    {
+        lives -= damage;
+        lives = Mathf.Max(0, lives);
+        if (lives == 0)
+        {
+            gameMaster.playerDead = true;
+        }
+    }
+
 
     //add powerup to inventory
     public void addPowerup(string powerupType)

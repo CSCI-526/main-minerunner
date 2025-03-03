@@ -34,36 +34,33 @@ public class cellBehavior : MonoBehaviour
 
     // Update is called once per frame
     private void Explode()
+    {
+        if (playerOn == true)
         {
-            if (playerOn == true)
-            {
-                 // if (player.getLives() == 0) {
-                 //    gamemaster.end() } 
-                 // else {
-                 //    player.setLives() }
+                // if (player.getLives() == 0) {
+                //    gamemaster.end() } 
+                // else {
+                //    player.setLives() }
 
-                if (playerBehavior.GetComponent<PlayerBehavior>().getLives() <= 0)
-                {
-                    gameMaster.GetComponent<gameMaster>().endGame();
-                }
-                else
-                {
-                    playerBehavior.GetComponent<PlayerBehavior>().setLives(playerBehavior.GetComponent<PlayerBehavior>().getLives() - 1);
-                    uiMaster.GetComponent<uiMaster>().RemoveLife();
-                }
-                hasMine = false;
-            }
-            hasMine = true;
-            //checks in a range if there are other cells containing mines and explodes them based on distance. 
-        }
-    private void PowerUp()
-        {
-            if (playerOn == true)
+            if (playerBehavior.GetComponent<PlayerBehavior>().getLives() > 0)
             {
-                //calls player.addPowerup()
+                //gameMaster.GetComponent<gameMaster>().endGame();
+                playerBehavior.GetComponent<PlayerBehavior>().decreaseLives(1);
+                uiMaster.GetComponent<uiMaster>().RemoveLife();
             }
-            //shows powerup if revealed by detonator
+            hasMine = false;
         }
+        hasMine = true;
+        //checks in a range if there are other cells containing mines and explodes them based on distance. 
+    }
+    private void PowerUp()
+    {
+        if (playerOn == true)
+        {
+            //calls player.addPowerup()
+        }
+        //shows powerup if revealed by detonator
+    }
     private void LandOn()
     {
         if (playerOn == true && hasPowerUp == true)
