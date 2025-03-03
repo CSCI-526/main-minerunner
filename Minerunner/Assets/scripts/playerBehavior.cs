@@ -98,14 +98,16 @@ public class PlayerBehavior : MonoBehaviour
         //    3    left
         //    4    right
         //    6    down
-
+        
         if (playerCursor == null) {
             InstantiatePlayerCursor();
         }
 
+        
         Dictionary<GameObject, GameObject[]> cellAdjacencyMap = gameMaster.getCellAdjacencyMap();
 
         if (cellAdjacencyMap.TryGetValue(cursorCell, out GameObject[] adjacentCells)) {
+            Debug.Log("Reached!");
             GameObject targetCell = adjacentCells[direction];
 
             if (targetCell != null && isInRange(targetCell)) {
