@@ -27,6 +27,14 @@ public class cellBehavior : MonoBehaviour
 
     }
 
+    public void incrementMineCount() {
+        numMines++;
+    }
+
+    public int getNumMines() {
+        return numMines;
+    }
+
     public bool gethasMine()
     {
         return hasMine;
@@ -35,8 +43,8 @@ public class cellBehavior : MonoBehaviour
     // Update is called once per frame
     private void Explode()
     {
-        if (playerOn == true)
-        {
+        // if (playerOn == true)
+        // {
                 // if (player.getLives() == 0) {
                 //    gamemaster.end() } 
                 // else {
@@ -46,11 +54,11 @@ public class cellBehavior : MonoBehaviour
             {
                 //gameMaster.GetComponent<gameMaster>().endGame();
                 playerBehavior.GetComponent<PlayerBehavior>().decreaseLives(1);
-                uiMaster.GetComponent<uiMaster>().RemoveLife();
+                // uiMaster.GetComponent<uiMaster>().RemoveLife();
             }
             hasMine = false;
-        }
-        hasMine = true;
+        // }
+        // hasMine = true;
         //checks in a range if there are other cells containing mines and explodes them based on distance. 
     }
     private void PowerUp()
@@ -82,5 +90,13 @@ public class cellBehavior : MonoBehaviour
             return;
         }
         gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+
+        activateCellItems();
+    }
+
+    private void activateCellItems() {
+        if (hasMine) {
+            Explode();
+        }
     }
 }     

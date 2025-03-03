@@ -9,13 +9,17 @@ public class gameMaster : MonoBehaviour
     public GameObject[] cells;  // Manually assigned thorugh Unity
     public GameObject startCell;
     public GameObject endCell;
+    public GameObject winPanel;
+    public GameObject losePanel;
+    public GameObject[] numberPrefabs;
+    public float numberHeight;
     [SerializeField] public Material revealedMaterial;
     [SerializeField] public Material startMaterial;
     [SerializeField] public Material endMaterial;
     [SerializeField] public Material hiddenMaterial;
 
     public bool playerDead;
-    private bool goalReached;
+    public bool goalReached;
     private Dictionary<Vector3, GameObject> cellPositionMap = new Dictionary<Vector3, GameObject>(); // Location of all cells
     private Dictionary<GameObject, GameObject[]> cellAdjacencyMap = new Dictionary<GameObject, GameObject[]>();
     
@@ -47,6 +51,16 @@ public class gameMaster : MonoBehaviour
         }
         return false;
     }
+
+    private void handleGameEnd()
+    {
+        if (goalReached && !winPanel.activeSelf) {
+            winPanel.SetActive(true);
+        } else if (playerDead && !losePanel.activeSelf) {
+            losePanel.SetActive(true);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +70,8 @@ public class gameMaster : MonoBehaviour
         createCellAdjacencyMap();
         startCell.GetComponent<MeshRenderer>().material = startMaterial; // should be replaced with reveal function in future
         endCell.GetComponent<MeshRenderer>().material = endMaterial;
+
+        generateNumbers();
     }
 
     // Update is called once per frame
@@ -63,6 +79,7 @@ public class gameMaster : MonoBehaviour
     {
         //Might call getLives from player to set playerDead here
         endGame();
+        handleGameEnd();
     }
 
     // function to create adjacency map for grid
@@ -109,5 +126,34 @@ public class gameMaster : MonoBehaviour
             Debug.Log($"Cell: {entry.Key.name} -> Neighbors: " + 
             string.Join(", ", entry.Value.Select(n => n ? n.name : "null")));
         }
+    }
+
+    private void generateNumbers() {
+        foreach (GameObject cell in cells) {
+            countMines(cell);
+            instantiateNumberPrefab(cell);
+        }
+    }
+
+    private void countMines(GameObject cell) {
+        foreach (GameObject neighbor in cellAdjacencyMap[cell]) {
+            if (neighbor == null) {
+                continue;
+            }
+
+            if (neighbor.GetComponent<cellBehavior>().gethasMine() == true) {
+                cell.GetComponent<cellBehavior>().incrementMineCount();
+            }
+        }
+    }
+
+    private void instantiateNumberPrefab(GameObject cell) {
+        int numMines = cell.GetComponent<cellBehavior>().getNumMines();
+        if (numMines == 0) {
+            return;
+        }
+
+        GameObject numberPrefab = Instantiate(numberPrefabs[numMines - 1]);
+        numberPrefab.transform.position = new Vector3(cell.transform.position.x, numberHeight, cell.transform.position.z);
     }
 }
