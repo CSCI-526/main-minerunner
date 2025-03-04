@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -9,11 +10,12 @@ public class cellBehavior : MonoBehaviour
     private bool hasPowerUp, empty, revealed, flagged, isGoal, playerOn;
     public bool hasMine;
     private int numMines;
-    // public Player player;
     private gameMaster gameMaster;
     private PlayerBehavior playerBehavior;
-    private uiMaster uiMaster;
+    //private uiMaster uiMaster;
     public GameObject explosionEffect;
+
+    private GameObject[] neighbours;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +24,9 @@ public class cellBehavior : MonoBehaviour
         revealed = false;
         gameMaster = FindObjectOfType<gameMaster>();
         playerBehavior = FindObjectOfType<PlayerBehavior>();
-        uiMaster = FindObjectOfType<uiMaster>();
-        // link the player object to the existing object
-        //player = FindObjectOfType<Player>();
-        // gamemaster = FindObjectOfType<GameMaster>();
-
+        //uiMaster = FindObjectOfType<uiMaster>();
+        countMines();
+        instantiateNumberPrefab();
     }
 
     public void incrementMineCount() {
@@ -42,27 +42,28 @@ public class cellBehavior : MonoBehaviour
         return hasMine;
     }
 
+    public void setNeighbours(GameObject[] neighbours)
+    {
+        this.neighbours = neighbours;
+    }
+
+    public GameObject[] getNeighbours()
+    {
+        return neighbours;
+    }
+
     // Update is called once per frame
     private void Explode()
     {
-        // if (playerOn == true)
-        // {
-                // if (player.getLives() == 0) {
-                //    gamemaster.end() } 
-                // else {
-                //    player.setLives() }
-
-            if (explosionEffect != null)
-            {
-                GameObject explosionInstance = Instantiate(explosionEffect, transform.position, Quaternion.identity);
-                Destroy(explosionInstance, 2f);
-            }
+        if (explosionEffect != null)
+        {
+            GameObject explosionInstance = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            Destroy(explosionInstance, 2f);
+        }
 
             if (playerBehavior.GetComponent<PlayerBehavior>().getLives() > 0)
             {
-                //gameMaster.GetComponent<gameMaster>().endGame();
                 playerBehavior.GetComponent<PlayerBehavior>().decreaseLives(1);
-                // uiMaster.GetComponent<uiMaster>().RemoveLife();
             }
 
              // Remove the Mine
@@ -73,9 +74,8 @@ public class cellBehavior : MonoBehaviour
             }
 
             hasMine = false;
-        // }
-        // hasMine = true;
-        //checks in a range if there are other cells containing mines and explodes them based on distance. 
+
+        //TODO: checks in a range if there are other cells containing mines and explodes them based on distance. 
     }
     private void PowerUp()
     {
@@ -114,5 +114,29 @@ public class cellBehavior : MonoBehaviour
         if (hasMine) {
             Explode();
         }
+    }
+
+    private void countMines() {
+        GameObject cell = gameObject;
+        foreach (GameObject neighbor in neighbours) {
+            if (neighbor == null) {
+                continue;
+            }
+
+            if (neighbor.GetComponent<cellBehavior>().gethasMine() == true) {
+                cell.GetComponent<cellBehavior>().incrementMineCount();
+            }
+        }
+    }
+
+    private void instantiateNumberPrefab() {
+        GameObject cell = gameObject;
+        int numMines = cell.GetComponent<cellBehavior>().getNumMines();
+        if (numMines == 0) {
+            return;
+        }
+
+        GameObject numberPrefab = Instantiate(gameMaster.numberPrefabs[numMines - 1]);
+        numberPrefab.transform.position = new Vector3(cell.transform.position.x, gameMaster.numberHeight, cell.transform.position.z);
     }
 }     

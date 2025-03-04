@@ -18,8 +18,6 @@ public class PlayerBehavior : MonoBehaviour
     private int lives = 3;  //default
     private Dictionary<string, int> inventory = new Dictionary<string, int>(); //powerup-inventory
 
-    //move range
-    //private int moveRange = 1;
     void Start()
     {
         gameMaster = FindObjectOfType<gameMaster>();
@@ -110,22 +108,16 @@ public class PlayerBehavior : MonoBehaviour
             instantiatePlayerCursor();
         }
 
-        
-        Dictionary<GameObject, GameObject[]> cellAdjacencyMap = gameMaster.getCellAdjacencyMap();
+        GameObject targetCell = cursorCell.GetComponent<cellBehavior>().getNeighbours()[direction];
 
-        if (cellAdjacencyMap.TryGetValue(cursorCell, out GameObject[] adjacentCells)) {
-            GameObject targetCell = adjacentCells[direction];
-
-            if (targetCell != null && isInRange(targetCell)) {
-                playerCursor.transform.position = new Vector3(targetCell.transform.position.x, cursorHeight, targetCell.transform.position.z);
-                cursorCell = targetCell;
-            }
+        if (targetCell != null && isInRange(targetCell)) {
+            playerCursor.transform.position = new Vector3(targetCell.transform.position.x, cursorHeight, targetCell.transform.position.z);
+            cursorCell = targetCell;
         }
     }
 
-    private void removeObject(GameObject obejct) {
-        Destroy(obejct);
-        obejct = null;
+    private void removeObject(GameObject obj) {
+        Destroy(obj);
     }
 
     private void instantiatePlayerCursor() {
@@ -141,10 +133,6 @@ public class PlayerBehavior : MonoBehaviour
 
         return totalDiff <= movementRange;
     }
-
-    /*private void reveal(GameObject cell) {
-        cell.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
-    }*/
 
     public void UseDetonator()
     {

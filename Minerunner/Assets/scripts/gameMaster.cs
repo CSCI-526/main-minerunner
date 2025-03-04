@@ -6,7 +6,7 @@ using UnityEngine;
 public class gameMaster : MonoBehaviour
 {
     public static int totalMines;
-    public GameObject[] cells;  // Manually assigned thorugh Unity
+    [SerializeField] public GameObject[] cells;  // Manually assigned thorugh Unity
     public GameObject startCell;
     public GameObject endCell;
     public GameObject winPanel;
@@ -21,11 +21,6 @@ public class gameMaster : MonoBehaviour
     public bool playerDead;
     public bool goalReached;
     private Dictionary<Vector3, GameObject> cellPositionMap = new Dictionary<Vector3, GameObject>(); // Location of all cells
-    private Dictionary<GameObject, GameObject[]> cellAdjacencyMap = new Dictionary<GameObject, GameObject[]>();
-    
-    public Dictionary<GameObject, GameObject[]> getCellAdjacencyMap() {
-        return cellAdjacencyMap;
-    }
 
     public void setMines(int mines)
     {
@@ -42,16 +37,6 @@ public class gameMaster : MonoBehaviour
         goalReached = goal;
     }
 
-    private bool endGame()
-    {
-        //Maybe split this into 2 cases later
-        if (goalReached || playerDead)
-        {
-            return true;
-        }
-        return false;
-    }
-
     private void handleGameEnd()
     {
         if (goalReached && !winPanel.activeSelf) {
@@ -61,31 +46,32 @@ public class gameMaster : MonoBehaviour
         }
     }
 
+    //Awake() is called before Start()
+    void Awake()
+    {
+        createCellAdjacencyMap();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         totalMines = 0;
         goalReached = false;
         playerDead = false;
-        createCellAdjacencyMap();
         startCell.GetComponent<MeshRenderer>().material = startMaterial; // should be replaced with reveal function in future
         endCell.GetComponent<MeshRenderer>().material = endMaterial;
-
-        generateNumbers();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Might call getLives from player to set playerDead here
-        endGame();
         handleGameEnd();
     }
 
     // function to create adjacency map for grid
     private void createCellAdjacencyMap() {
 
-        //store locaiton of all cells
+        //store location of all cells
         foreach (GameObject cell in cells) {
             cellPositionMap[cell.transform.position] = cell;
             cell.GetComponent<MeshRenderer>().material = hiddenMaterial;
@@ -118,42 +104,8 @@ public class gameMaster : MonoBehaviour
                 }
             }
 
-            cellAdjacencyMap[cell] = adjacentCells;
+            //Assign list of neighbours to every cell
+            cell.GetComponent<cellBehavior>().setNeighbours(adjacentCells);
         }
-        
-        // print cellAdjacencyMap to test
-        foreach (var entry in cellAdjacencyMap) {
-            Debug.Log($"Cell: {entry.Key.name} -> Neighbors: " + 
-            string.Join(", ", entry.Value.Select(n => n ? n.name : "null")));
-        }
-    }
-
-    private void generateNumbers() {
-        foreach (GameObject cell in cells) {
-            countMines(cell);
-            instantiateNumberPrefab(cell);
-        }
-    }
-
-    private void countMines(GameObject cell) {
-        foreach (GameObject neighbor in cellAdjacencyMap[cell]) {
-            if (neighbor == null) {
-                continue;
-            }
-
-            if (neighbor.GetComponent<cellBehavior>().gethasMine() == true) {
-                cell.GetComponent<cellBehavior>().incrementMineCount();
-            }
-        }
-    }
-
-    private void instantiateNumberPrefab(GameObject cell) {
-        int numMines = cell.GetComponent<cellBehavior>().getNumMines();
-        if (numMines == 0) {
-            return;
-        }
-
-        GameObject numberPrefab = Instantiate(numberPrefabs[numMines - 1]);
-        numberPrefab.transform.position = new Vector3(cell.transform.position.x, numberHeight, cell.transform.position.z);
     }
 }
