@@ -13,6 +13,8 @@ public class cellBehavior : MonoBehaviour
     private gameMaster gameMaster;
     private PlayerBehavior playerBehavior;
     private uiMaster uiMaster;
+    public GameObject explosionEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,12 @@ public class cellBehavior : MonoBehaviour
                 //    gamemaster.end() } 
                 // else {
                 //    player.setLives() }
+
+            if (explosionEffect != null)
+            {
+                GameObject explosionInstance = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+                Destroy(explosionInstance, 2f);
+            }
 
             if (playerBehavior.GetComponent<PlayerBehavior>().getLives() > 0)
             {
