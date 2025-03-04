@@ -10,7 +10,9 @@ public class uiMaster : MonoBehaviour
     public Image[] lives;  // Assign all GameObjects in the Unity Inspector
     public int livesRemaining;
     //private gameMaster gameMaster;
-    
+    public GameObject instructionsPanel;
+    public Button instructionsButton;
+
     public void loseLife()
     {
         livesRemaining --;
@@ -32,5 +34,15 @@ public class uiMaster : MonoBehaviour
 
     public void restartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void toggleInstructions()
+    {
+        instructionsPanel.SetActive(!instructionsPanel.activeSelf);
+    }
+
+    public void closeInstructions()
+    {
+        instructionsPanel.SetActive(false);
     }
 }
