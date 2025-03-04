@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,7 +10,7 @@ public class PlayerBehavior : MonoBehaviour
     public GameObject playerCell;
     public GameObject playerCursorPrefab;
     public float cursorHeight;
-    public int movementRange;
+    public double movementRange;
     //private variables
     private gameMaster gameMaster;
     private uiMaster uiMaster;
@@ -22,6 +23,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         gameMaster = FindObjectOfType<gameMaster>();
         uiMaster = FindObjectOfType<uiMaster>();
+        movementRange = Math.Sqrt(2*(movementRange * movementRange));
     }
     // Update is called once per frame
 
@@ -91,6 +93,7 @@ public class PlayerBehavior : MonoBehaviour
         }
         
         removeObject(playerCursor);
+        
         this.transform.position = cursorCell.transform.position;
         playerCell = cursorCell;
         playerCell.GetComponent<cellBehavior>().reveal();
@@ -129,7 +132,8 @@ public class PlayerBehavior : MonoBehaviour
     private bool isInRange(GameObject targetCell) {
         int xDiff = (int) Mathf.Abs(playerCell.transform.position.x - targetCell.transform.position.x);
         int zDiff = (int) Mathf.Abs(playerCell.transform.position.z - targetCell.transform.position.z);
-        int totalDiff = xDiff + zDiff;
+        double totalDiff = Math.Sqrt(xDiff*xDiff + zDiff*zDiff);
+        //Debug.Log("totalDiff: " + totalDiff);
 
         return totalDiff <= movementRange;
     }
