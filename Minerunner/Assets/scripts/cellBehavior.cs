@@ -64,6 +64,14 @@ public class cellBehavior : MonoBehaviour
                 playerBehavior.GetComponent<PlayerBehavior>().decreaseLives(1);
                 // uiMaster.GetComponent<uiMaster>().RemoveLife();
             }
+
+             // Remove the Mine
+            Transform mineImageTransform = transform.Find("MineImage");
+            if (mineImageTransform != null)
+            {
+                Destroy(mineImageTransform.gameObject, 1f);
+            }
+
             hasMine = false;
         // }
         // hasMine = true;
