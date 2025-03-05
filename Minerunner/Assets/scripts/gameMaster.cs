@@ -10,9 +10,11 @@ public class gameMaster : MonoBehaviour
     public GameObject startCell;
     public GameObject endCell;
     public GameObject winPanel;
+     private bool hasSentData = false;
     public GameObject losePanel;
     public GameObject[] numberPrefabs;
     public float numberHeight;
+    sendToGoogle google;
     [SerializeField] public Material revealedMaterial;
     [SerializeField] public Material startMaterial;
     [SerializeField] public Material endMaterial;
@@ -38,13 +40,35 @@ public class gameMaster : MonoBehaviour
     }
 
     private void handleGameEnd()
+{
+    if (goalReached && !winPanel.activeSelf)
     {
-        if (goalReached && !winPanel.activeSelf) {
-            winPanel.SetActive(true);
-        } else if (playerDead && !losePanel.activeSelf) {
-            losePanel.SetActive(true);
-        }
+        winPanel.SetActive(true); // Show win screen
+        TrySendingData();
     }
+    else if (playerDead && !losePanel.activeSelf)
+    {
+        losePanel.SetActive(true); // Show lose screen
+        TrySendingData();
+    }
+}
+
+private void TrySendingData()
+{
+    if (!hasSentData) // Prevents multiple sends to avoid the http 429 error
+    {
+        hasSentData = true;
+        StartCoroutine(DelayedSend());
+    }
+}
+
+private IEnumerator DelayedSend()
+{
+    yield return new WaitForSeconds(1); // Give UI time to update because the screen was not visible
+    Debug.Log("Sending data to Google..."); 
+    google.Send(playerDead, goalReached); // Now send the data
+}
+
 
     //Awake() is called before Start()
     void Awake()
@@ -55,6 +79,11 @@ public class gameMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        google = FindObjectOfType<sendToGoogle>(); 
+        if (google == null)
+        {
+            Debug.LogError("sendToGoogle script not found");
+        }
         totalMines = 0;
         goalReached = false;
         playerDead = false;
