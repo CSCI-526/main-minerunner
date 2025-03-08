@@ -10,6 +10,7 @@ public class gameMaster : MonoBehaviour
     public GameObject startCell;
     public GameObject endCell;
     public GameObject winPanel;
+    public GameObject[] empty;
      private bool hasSentData = false;
     public GameObject losePanel;
     public GameObject[] numberPrefabs;
@@ -19,6 +20,7 @@ public class gameMaster : MonoBehaviour
     [SerializeField] public Material startMaterial;
     [SerializeField] public Material endMaterial;
     [SerializeField] public Material hiddenMaterial;
+    [SerializeField] public Material emptyMaterial;
 
     public bool playerDead;
     public bool goalReached;
@@ -89,6 +91,10 @@ private IEnumerator DelayedSend()
         playerDead = false;
         startCell.GetComponent<MeshRenderer>().material = startMaterial; // should be replaced with reveal function in future
         endCell.GetComponent<MeshRenderer>().material = endMaterial;
+        for (int i = 0; i < empty.Length; i++)
+        {
+            empty[i].GetComponent<MeshRenderer>().material  = emptyMaterial;
+        }
     }
 
     // Update is called once per frame

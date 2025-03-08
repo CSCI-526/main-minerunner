@@ -93,10 +93,12 @@ public class PlayerBehavior : MonoBehaviour
         }
         
         removeObject(playerCursor);
-        
-        this.transform.position = cursorCell.transform.position;
-        playerCell = cursorCell;
-        playerCell.GetComponent<cellBehavior>().reveal();
+        if (!cursorCell.GetComponent<cellBehavior>().empty)
+        {
+            this.transform.position = cursorCell.transform.position;
+            playerCell = cursorCell;
+            playerCell.GetComponent<cellBehavior>().reveal();
+        }
     }
 
     private void moveCursor(int direction) {

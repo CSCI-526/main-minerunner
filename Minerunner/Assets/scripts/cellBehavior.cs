@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class cellBehavior : MonoBehaviour
 {
-    private bool hasPowerUp, empty, revealed, flagged, isGoal, playerOn;
-    public bool hasMine;
+    private bool hasPowerUp, revealed, flagged, isGoal, playerOn;
+    public bool hasMine, empty;
     private int numMines;
     private gameMaster gameMaster;
     private PlayerBehavior playerBehavior;
@@ -26,7 +26,10 @@ public class cellBehavior : MonoBehaviour
         playerBehavior = FindObjectOfType<PlayerBehavior>();
         //uiMaster = FindObjectOfType<uiMaster>();
         countMines();
-        instantiateNumberPrefab();
+        if (!empty)
+        {
+            instantiateNumberPrefab();
+        }
     }
 
     public void incrementMineCount() {
@@ -97,17 +100,20 @@ public class cellBehavior : MonoBehaviour
     {
         if (gameMaster.startCell == gameObject)
         {
-            
+
             return;
         }
-        else if(gameMaster.endCell == gameObject)
+        else if (gameMaster.endCell == gameObject)
         {
             gameMaster.setGoal(true);
             return;
         }
-        gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+        else if (!empty)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
 
-        activateCellItems();
+            activateCellItems();
+        }
     }
 
     private void activateCellItems() {
