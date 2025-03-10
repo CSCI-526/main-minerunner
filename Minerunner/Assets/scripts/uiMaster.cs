@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class uiMaster : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class uiMaster : MonoBehaviour
     //private gameMaster gameMaster;
     public GameObject instructionsPanel;
     public Button instructionsButton;
-
+    public GameObject powerupsPanel;
+    public TextMeshProUGUI powerupText;
     public void loseLife()
     {
         livesRemaining --;
@@ -30,6 +32,24 @@ public class uiMaster : MonoBehaviour
     void Update()
     {
        
+    }
+
+    public void updatePowerupPanel(Dictionary<string, int> inventory)
+    {
+        powerupsPanel.SetActive(!powerupsPanel.activeSelf);
+        if (inventory.Count > 0)
+        {
+            powerupText.text = "";
+
+            foreach (var powerup in inventory)
+            {
+                powerupText.text += powerup.Key + " : " + powerup.Value + "\n";
+            }
+        }
+        else
+        {
+            powerupsPanel.SetActive(false);
+        }
     }
 
     public void restartGame() {

@@ -19,7 +19,7 @@ public class playerMovement : MonoBehaviour
     public GameObject playerCell;
     public GameObject playerCursorPrefab;
 
-
+    public bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,7 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove) return;
         // if (playerMoving)
         // {
         //     elapsedTime += Time.deltaTime;
