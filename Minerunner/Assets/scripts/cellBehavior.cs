@@ -7,12 +7,14 @@ using UnityEngine;
 
 public class cellBehavior : MonoBehaviour
 {
-    private bool hasPowerUp, revealed, flagged, isGoal, playerOn;
-    public bool hasMine, empty;
+    private bool revealed, flagged, isGoal, playerOn;
+    public bool hasPowerUp, hasMine, empty;
+    public int powerUp;
     private int numMines;
     private gameMaster gameMaster;
     private PlayerBehavior playerBehavior;
-    //private uiMaster uiMaster;
+    private detonator detonatorObj;
+    private uiMaster uiMaster;
     public GameObject explosionEffect;
 
     private GameObject[] neighbours;
@@ -24,7 +26,8 @@ public class cellBehavior : MonoBehaviour
         revealed = false;
         gameMaster = FindObjectOfType<gameMaster>();
         playerBehavior = FindObjectOfType<PlayerBehavior>();
-        //uiMaster = FindObjectOfType<uiMaster>();
+        detonatorObj = FindObjectOfType<detonator>();
+        uiMaster = FindObjectOfType<uiMaster>();
         countMines();
         if (!empty)
         {
@@ -119,6 +122,15 @@ public class cellBehavior : MonoBehaviour
     private void activateCellItems() {
         if (hasMine) {
             Explode();
+        }
+        else if (hasPowerUp)
+        {
+        if (powerUp == 1) {
+        detonatorObj.togglePanel();
+        playerBehavior.addPowerup("Detonator");
+        hasPowerUp = false; 
+        // Debug.Log("Detonator Collected!");
+        }
         }
     }
 

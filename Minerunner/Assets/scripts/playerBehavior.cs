@@ -11,7 +11,7 @@ public class PlayerBehavior : MonoBehaviour
     private uiMaster uiMaster;
 
     private int lives = 3;  //default
-    private Dictionary<string, int> inventory = new Dictionary<string, int>(); //powerup-inventory
+    public Dictionary<string, int> inventory = new Dictionary<string, int>(); //powerup-inventory
 
     void Start()
     {
@@ -64,16 +64,17 @@ public class PlayerBehavior : MonoBehaviour
         {
             inventory[powerupType] = 1;
         }
+        uiMaster.updatePowerupPanel(inventory);
     }
 
 
 
-    public void UseDetonator()
+ 
+    public void usePowerup(string powerupType)
     {
-        if (inventory.ContainsKey("Detonator") && inventory["Detonator"] > 0)
-        {
-            inventory["Detonator"]--;
-            //implement mine reveal
-        }
+
+    inventory[powerupType]--; 
+    uiMaster.updatePowerupPanel(inventory);
     }
+   
 }
