@@ -67,7 +67,7 @@ public class cellBehavior : MonoBehaviour
             Destroy(explosionInstance, 2f);
         }
 
-            if (playerBehavior.GetComponent<PlayerBehavior>().getLives() > 0)
+            if (playerBehavior.GetComponent<PlayerBehavior>().getLives() > 0 && playerOn == true)
             {
                 playerBehavior.GetComponent<PlayerBehavior>().decreaseLives(1);
             }
@@ -93,10 +93,15 @@ public class cellBehavior : MonoBehaviour
     }
     private void LandOn()
     {
-        if (playerOn == true && hasPowerUp == true)
+        if (!playerOn)
         {
             //calls player.addPowerup()
         }
+    }
+
+    public void setPlayerOn(bool on)
+    {
+        playerOn = on;
     }
 
     public void reveal()

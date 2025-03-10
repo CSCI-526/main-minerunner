@@ -5,6 +5,7 @@ using UnityEngine;
 public class detonator : MonoBehaviour
 {
     private gameMaster gameMaster;
+    private cellBehavior cellBehavior;
     private playerMovement playerMovement;
     private PlayerBehavior playerBehavior;
     private GameObject detonatorCursor = null;
@@ -21,6 +22,7 @@ public class detonator : MonoBehaviour
         gameMaster = FindObjectOfType<gameMaster>();
         playerMovement = FindObjectOfType<playerMovement>();
         playerBehavior = FindObjectOfType<PlayerBehavior>();
+        cellBehavior = FindObjectOfType<cellBehavior>();
     }
 
     void Update()
@@ -40,7 +42,7 @@ public class detonator : MonoBehaviour
     {
         if (detonatorActive)
             return;
-        playerMovement.canMove = false;
+        playerMovement.playerMoving = false;
         detonatorActive = true;
         InstantiateDetonatorCursor();
     }
@@ -77,12 +79,13 @@ public class detonator : MonoBehaviour
     {
         if (cursorCell != null)
         {
+            cellBehavior.setPlayerOn(false);
             cursorCell.GetComponent<cellBehavior>().reveal();
         }
 
         Destroy(detonatorCursor);
         detonatorActive = false;
-        playerMovement.canMove = true;
+        playerMovement.playerMoving = true;
         playerBehavior.usePowerup("Detonator");
 
     }

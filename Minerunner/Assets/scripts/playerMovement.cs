@@ -8,7 +8,7 @@ public class playerMovement : MonoBehaviour
     private float cursorHeight = 1f;
     private gameMaster gameMaster;
     private cursorBehaviour playerCursor;
-    private bool playerMoving = false;
+    public bool playerMoving = false;
     private float playerMoveDuration = 0.2f;
     private float elapsedTime = 0f;
     private Vector3 startPos;
