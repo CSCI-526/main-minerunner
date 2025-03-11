@@ -15,6 +15,7 @@ public class uiMaster : MonoBehaviour
     public Button instructionsButton;
     public GameObject powerupsPanel;
     public TextMeshProUGUI powerupText;
+    public string nextLevelName;
     public void loseLife()
     {
         livesRemaining --;
@@ -64,5 +65,10 @@ public class uiMaster : MonoBehaviour
     public void closeInstructions()
     {
         instructionsPanel.SetActive(false);
+    }
+  
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(nextLevelName);
     }
 }
