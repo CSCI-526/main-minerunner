@@ -141,7 +141,8 @@ public class cellBehavior : MonoBehaviour
 
     private void countMines() {
         GameObject cell = gameObject;
-        foreach (GameObject neighbor in neighbours) {
+        foreach (GameObject neighbor in neighbours) 
+        {
             if (neighbor == null) {
                 continue;
             }
