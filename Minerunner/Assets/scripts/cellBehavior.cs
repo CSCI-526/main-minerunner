@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class cellBehavior : MonoBehaviour
 {
-    private bool revealed, flagged, isGoal, playerOn;
-    public bool hasPowerUp, hasMine, empty;
+    private bool flagged, isGoal, playerOn;
+    public bool hasPowerUp, hasMine, empty, revealed;
     public int powerUp;
     private int numMines;
     private gameMaster gameMaster;
@@ -130,19 +130,18 @@ public class cellBehavior : MonoBehaviour
         }
         else if (hasPowerUp)
         {
-        if (powerUp == 1) {
-        detonatorObj.togglePanel();
-        playerBehavior.addPowerup("Detonator");
-        hasPowerUp = false; 
-        // Debug.Log("Detonator Collected!");
-        }
+            if (powerUp == 1) {
+                detonatorObj.togglePanel();
+                playerBehavior.addPowerup("Detonator");
+                hasPowerUp = false; 
+                // Debug.Log("Detonator Collected!");
+            }
         }
     }
 
     private void countMines() {
         GameObject cell = gameObject;
-        foreach (GameObject neighbor in neighbours) 
-        {
+        foreach (GameObject neighbor in neighbours) {
             if (neighbor == null) {
                 continue;
             }
@@ -163,4 +162,4 @@ public class cellBehavior : MonoBehaviour
         GameObject numberPrefab = Instantiate(gameMaster.numberPrefabs[numMines - 1]);
         numberPrefab.transform.position = new Vector3(cell.transform.position.x, gameMaster.numberHeight, cell.transform.position.z);
     }
-}     
+}

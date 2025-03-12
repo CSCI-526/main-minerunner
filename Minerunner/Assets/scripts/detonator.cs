@@ -95,7 +95,6 @@ public class detonator : MonoBehaviour
     public void togglePanel()
     {
         detonatorPanel.SetActive(!detonatorPanel.activeSelf);
-
     }
 
 

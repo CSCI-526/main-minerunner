@@ -17,14 +17,16 @@ public class playerMovement : MonoBehaviour
     public GameObject playerCell;
     public GameObject playerCursorPrefab;
 
+    void Awake()
+    {
+        instantiatePlayerCursor();
+    }
     // Start is called before the first frame update
     void Start()
     {
         gameMaster = FindObjectOfType<gameMaster>();
         movementRange = Math.Sqrt(2*(movementRange * movementRange));
-        instantiatePlayerCursor();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -84,5 +86,10 @@ public class playerMovement : MonoBehaviour
         double totalDiff = Math.Sqrt(xDiff*xDiff + zDiff*zDiff);
 
         return totalDiff <= movementRange;
+    }
+
+    public cursorBehaviour getCursor()
+    {
+        return playerCursor;
     }
 }

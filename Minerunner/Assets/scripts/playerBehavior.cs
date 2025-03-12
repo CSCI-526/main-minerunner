@@ -11,17 +11,36 @@ public class PlayerBehavior : MonoBehaviour
     private uiMaster uiMaster;
 
     private int lives = 3;  //default
+    private cursorBehaviour playerCursor;
     public Dictionary<string, int> inventory = new Dictionary<string, int>(); //powerup-inventory
 
     void Start()
     {
         gameMaster = FindObjectOfType<gameMaster>();
         uiMaster = FindObjectOfType<uiMaster>();
+        playerCursor = gameObject.GetComponent<playerMovement>().getCursor();
     }
     // Update is called once per frame
 
     void Update()
     {
+        if (!gameObject.GetComponent<playerMovement>().playerMoving)
+        {
+            handleItemUse();
+        }
+    }
+
+    private void handleItemUse() {
+        if (gameMaster.goalReached || gameMaster.playerDead) {
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (inventory.ContainsKey("Detonator") && inventory["Detonator"] > 0)
+            {
+                usePowerup("Detonator");
+            }
+        }
         
     }
 
@@ -72,9 +91,26 @@ public class PlayerBehavior : MonoBehaviour
  
     public void usePowerup(string powerupType)
     {
-
-    inventory[powerupType]--; 
-    uiMaster.updatePowerupPanel(inventory);
+        if (playerCursor == null) {
+            return;
+        }
+        
+        cellBehavior cursorCell = playerCursor.getCursorCell().GetComponent<cellBehavior>();
+        if (!cursorCell.revealed)
+        {
+            cursorCell.setPlayerOn(false);
+            cursorCell.GetComponent<cellBehavior>().reveal();
+            // startPos = transform.position;
+            // endPos = playerCursor.getCursorCell().transform.position;
+            // playerMoving = true;
+            
+            // playerCell = playerCursor.getCursorCell();
+            // playerCell.GetComponent<cellBehavior>().setPlayerOn(true);
+            // playerCell.GetComponent<cellBehavior>().reveal();
+            inventory[powerupType]--; 
+            uiMaster.updatePowerupPanel(inventory);
+        }
+        
     }
    
 }
