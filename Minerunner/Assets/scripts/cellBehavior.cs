@@ -15,6 +15,7 @@ public class cellBehavior : MonoBehaviour
     private PlayerBehavior playerBehavior;
     private detonator detonatorObj;
     private uiMaster uiMaster;
+    private GameObject numberPrefab;
     public GameObject explosionEffect;
 
     private GameObject[] neighbours;
@@ -37,6 +38,10 @@ public class cellBehavior : MonoBehaviour
 
     public void incrementMineCount() {
         numMines++;
+    }
+
+    public void decrementMineCount() {
+        numMines--;
     }
 
     public int getNumMines() {
@@ -80,6 +85,9 @@ public class cellBehavior : MonoBehaviour
             }
 
             hasMine = false;
+            updateNeighborNums();
+
+            Debug.Log("Exploded!");
 
         //TODO: checks in a range if there are other cells containing mines and explodes them based on distance. 
     }
@@ -119,8 +127,41 @@ public class cellBehavior : MonoBehaviour
         else if (!empty)
         {
             gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+            this.revealed = true;
 
             activateCellItems();
+
+            if (gameMaster.recursiveReveal == true && numMines == 0)
+            {
+                recursiveReveal();
+            }
+        }
+    }
+
+    public void recursiveReveal() {
+        gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+        this.revealed = true;
+
+        
+        if (numMines > 0) {
+            return;
+        }
+
+        foreach (GameObject neighbor in neighbours) {
+            if (neighbor == null) {
+                continue;
+            }
+
+            cellBehavior neighborCellBehavior = neighbor.GetComponent<cellBehavior>();
+
+            if (neighborCellBehavior.empty == true
+                || neighbor == gameMaster.startCell || neighbor == gameMaster.endCell
+                || neighborCellBehavior.revealed == true
+                || neighborCellBehavior.gethasMine() == true) {
+                continue;
+            }
+            // Debug.Log(neighborCellBehavior.getNumMines());
+            neighborCellBehavior.recursiveReveal();
         }
     }
 
@@ -153,13 +194,27 @@ public class cellBehavior : MonoBehaviour
     }
 
     private void instantiateNumberPrefab() {
-        GameObject cell = gameObject;
-        int numMines = cell.GetComponent<cellBehavior>().getNumMines();
+        if (numberPrefab != null) {
+            Destroy(numberPrefab);
+        }
+
+        int numMines = this.GetComponent<cellBehavior>().getNumMines();
         if (numMines == 0) {
             return;
         }
 
-        GameObject numberPrefab = Instantiate(gameMaster.numberPrefabs[numMines - 1]);
-        numberPrefab.transform.position = new Vector3(cell.transform.position.x, gameMaster.numberHeight, cell.transform.position.z);
+        numberPrefab = Instantiate(gameMaster.numberPrefabs[numMines - 1]);
+        numberPrefab.transform.position = new Vector3(this.transform.position.x, gameMaster.numberHeight, this.transform.position.z);
+    }
+
+    private void updateNeighborNums() {
+        foreach (GameObject neighbor in neighbours) {
+            if (neighbor == null || neighbor.GetComponent<cellBehavior>().empty == true) {
+                continue;
+            }
+
+            neighbor.GetComponent<cellBehavior>().decrementMineCount();
+            neighbor.GetComponent<cellBehavior>().instantiateNumberPrefab();
+        }
     }
 }

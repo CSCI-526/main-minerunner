@@ -24,6 +24,7 @@ public class gameMaster : MonoBehaviour
 
     public bool playerDead;
     public bool goalReached;
+    public bool recursiveReveal;
     private Dictionary<Vector3, GameObject> cellPositionMap = new Dictionary<Vector3, GameObject>(); // Location of all cells
 
     public void setMines(int mines)
