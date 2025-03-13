@@ -67,4 +67,5 @@ public class uiMaster : MonoBehaviour
     {
         SceneManager.LoadScene(nextLevelName);
     }
+
 }

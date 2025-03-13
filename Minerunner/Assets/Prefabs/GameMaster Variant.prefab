@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &475334151446296121
+--- !u!1001 &3496891669750034004
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1674265308604705092, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35
+      value: -8.086369
       objectReference: {fileID: 0}
     - target: {fileID: 1674265308604705092, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.49999905
       objectReference: {fileID: 0}
     - target: {fileID: 1674265308604705092, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -3.5962408
       objectReference: {fileID: 0}
     - target: {fileID: 1674265308604705092, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -59,87 +59,30 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 343784829805273974, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1232658970486317464}
+      addedObject: {fileID: 5524346445071447121}
   m_SourcePrefab: {fileID: 100100000, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
---- !u!1 &170547032558622031 stripped
+--- !u!1 &3765618458504400162 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 343784829805273974, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
-  m_PrefabInstance: {fileID: 475334151446296121}
+  m_PrefabInstance: {fileID: 3496891669750034004}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1232658970486317464
+--- !u!114 &5524346445071447121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170547032558622031}
+  m_GameObject: {fileID: 3765618458504400162}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8590db3fe6415c4488a2f29d27317af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cells:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  cells: []
   startCell: {fileID: 0}
   endCell: {fileID: 0}
   winPanel: {fileID: 0}
-  empty:
-  - {fileID: 0}
-  - {fileID: 0}
+  empty: []
   losePanel: {fileID: 0}
   numberPrefabs:
   - {fileID: 824424627517798795, guid: e68ddfa3964898f4d98cb6d6baeab270, type: 3}
@@ -158,3 +101,4 @@ MonoBehaviour:
   emptyMaterial: {fileID: 2100000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
   playerDead: 0
   goalReached: 0
+  recursiveReveal: 0
