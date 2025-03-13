@@ -15,6 +15,7 @@ public class uiMaster : MonoBehaviour
     public Button instructionsButton;
     public GameObject powerupsPanel;
     public TextMeshProUGUI powerupText;
+    public GameObject detonatorPanel;
     public string nextLevelName;
     public void loseLife()
     {
@@ -33,6 +34,11 @@ public class uiMaster : MonoBehaviour
     void Update()
     {
        
+    }
+
+    public void toggleObject(GameObject obj)
+    {
+        obj.SetActive(!obj.activeSelf);
     }
 
     public void updatePowerupPanel(Dictionary<string, int> inventory)
@@ -55,16 +61,6 @@ public class uiMaster : MonoBehaviour
 
     public void restartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void toggleInstructions()
-    {
-        instructionsPanel.SetActive(!instructionsPanel.activeSelf);
-    }
-
-    public void closeInstructions()
-    {
-        instructionsPanel.SetActive(false);
     }
   
     public void LoadNextLevel()

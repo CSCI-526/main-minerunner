@@ -7,7 +7,7 @@ public class detonator : MonoBehaviour
     private gameMaster gameMaster;
     private cellBehavior cellBehavior;
     private playerMovement playerMovement;
-    private PlayerBehavior playerBehavior;
+    private playerBehavior playerBehavior;
     private GameObject detonatorCursor = null;
     private GameObject cursorCell;
     private bool detonatorActive = false;
@@ -21,7 +21,7 @@ public class detonator : MonoBehaviour
     {
         gameMaster = FindObjectOfType<gameMaster>();
         playerMovement = FindObjectOfType<playerMovement>();
-        playerBehavior = FindObjectOfType<PlayerBehavior>();
+        playerBehavior = FindObjectOfType<playerBehavior>();
         cellBehavior = FindObjectOfType<cellBehavior>();
     }
 

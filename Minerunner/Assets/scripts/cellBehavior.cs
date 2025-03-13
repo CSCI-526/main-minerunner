@@ -10,10 +10,11 @@ public class cellBehavior : MonoBehaviour
     private bool flagged, isGoal, playerOn;
     public bool hasPowerUp, hasMine, empty, revealed;
     public int powerUp;
+    public GameObject powerUpImage;
     private int numMines;
     private gameMaster gameMaster;
-    private PlayerBehavior playerBehavior;
-    private detonator detonatorObj;
+    private playerBehavior playerBehavior;
+    //private detonator detonatorObj;
     private uiMaster uiMaster;
     private GameObject numberPrefab;
     public GameObject explosionEffect;
@@ -26,8 +27,8 @@ public class cellBehavior : MonoBehaviour
         //sets revealed status to false immediately.
         revealed = false;
         gameMaster = FindObjectOfType<gameMaster>();
-        playerBehavior = FindObjectOfType<PlayerBehavior>();
-        detonatorObj = FindObjectOfType<detonator>();
+        playerBehavior = FindObjectOfType<playerBehavior>();
+        //detonatorObj = FindObjectOfType<detonator>();
         uiMaster = FindObjectOfType<uiMaster>();
         countMines();
         if (!empty)
@@ -72,9 +73,9 @@ public class cellBehavior : MonoBehaviour
             Destroy(explosionInstance, 2f);
         }
 
-            if (playerBehavior.GetComponent<PlayerBehavior>().getLives() > 0 && playerOn == true)
+            if (playerBehavior.getLives() > 0 && playerOn == true)
             {
-                playerBehavior.GetComponent<PlayerBehavior>().decreaseLives(1);
+                playerBehavior.decreaseLives(1);
             }
 
              // Remove the Mine
@@ -116,7 +117,6 @@ public class cellBehavior : MonoBehaviour
     {
         if (gameMaster.startCell == gameObject)
         {
-
             return;
         }
         else if (gameMaster.endCell == gameObject)
@@ -171,8 +171,10 @@ public class cellBehavior : MonoBehaviour
         }
         else if (hasPowerUp)
         {
+            uiMaster.toggleObject(powerUpImage);
             if (powerUp == 1) {
-                detonatorObj.togglePanel();
+                uiMaster.toggleObject(uiMaster.detonatorPanel);
+                //detonatorObj.togglePanel();
                 playerBehavior.addPowerup("Detonator");
                 hasPowerUp = false; 
                 // Debug.Log("Detonator Collected!");
@@ -198,7 +200,7 @@ public class cellBehavior : MonoBehaviour
             Destroy(numberPrefab);
         }
 
-        int numMines = this.GetComponent<cellBehavior>().getNumMines();
+        int numMines = getNumMines();
         if (numMines == 0) {
             return;
         }

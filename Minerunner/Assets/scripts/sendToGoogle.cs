@@ -14,7 +14,7 @@ public class sendToGoogle : MonoBehaviour
     private bool goalReached;
     private bool playerDead;
 
-    PlayerBehavior player;
+    playerBehavior player;
 
     private void Awake() {
         sessionID = DateTime.Now.Ticks; 
@@ -22,7 +22,7 @@ public class sendToGoogle : MonoBehaviour
 
     void Start() {
         
-        player = FindObjectOfType<PlayerBehavior>();
+        player = FindObjectOfType<playerBehavior>();
      }
 
     void Update() { }

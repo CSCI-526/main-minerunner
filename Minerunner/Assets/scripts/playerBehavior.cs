@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class PlayerBehavior : MonoBehaviour
+public class playerBehavior : MonoBehaviour
 {
     //private variables
     private gameMaster gameMaster;
@@ -99,14 +99,8 @@ public class PlayerBehavior : MonoBehaviour
         if (!cursorCell.revealed)
         {
             cursorCell.setPlayerOn(false);
-            cursorCell.GetComponent<cellBehavior>().reveal();
-            // startPos = transform.position;
-            // endPos = playerCursor.getCursorCell().transform.position;
-            // playerMoving = true;
-            
-            // playerCell = playerCursor.getCursorCell();
-            // playerCell.GetComponent<cellBehavior>().setPlayerOn(true);
-            // playerCell.GetComponent<cellBehavior>().reveal();
+            cursorCell.reveal();
+
             inventory[powerupType]--; 
             uiMaster.updatePowerupPanel(inventory);
         }

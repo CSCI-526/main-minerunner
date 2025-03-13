@@ -69,7 +69,10 @@ public class playerMovement : MonoBehaviour
             
             playerCell = playerCursor.getCursorCell();
             playerCell.GetComponent<cellBehavior>().setPlayerOn(true);
-            playerCell.GetComponent<cellBehavior>().reveal();
+            if (!playerCell.GetComponent<cellBehavior>().revealed)
+            {
+                playerCell.GetComponent<cellBehavior>().reveal();
+            }
         }
     }
 
