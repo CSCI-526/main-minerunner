@@ -114,29 +114,36 @@ public class cellBehavior : MonoBehaviour
     }
 
     public void reveal()
+{
+    if (gameMaster.startCell == gameObject)
     {
-        if (gameMaster.startCell == gameObject)
+        return;
+    }
+    else if (gameMaster.endCell == gameObject)
+    {
+        gameMaster.setGoal(true);
+        return;
+    }
+    else if (!empty)
+    {
+        
+        if (!revealed)
         {
-            return;
+            gameMaster.cellsRevealed++; // Track revealed cells
         }
-        else if (gameMaster.endCell == gameObject)
-        {
-            gameMaster.setGoal(true);
-            return;
-        }
-        else if (!empty)
-        {
-            gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
-            this.revealed = true;
 
-            activateCellItems();
+        gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+        this.revealed = true;
 
-            if (gameMaster.recursiveReveal == true && numMines == 0)
-            {
-                recursiveReveal();
-            }
+        activateCellItems();
+
+        if (gameMaster.recursiveReveal == true && numMines == 0)
+        {
+            recursiveReveal(); 
         }
     }
+}
+
 
     public void recursiveReveal() {
         gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
@@ -165,22 +172,28 @@ public class cellBehavior : MonoBehaviour
         }
     }
 
-    private void activateCellItems() {
-        if (hasMine) {
+    private void activateCellItems() 
+    {
+        if (hasMine) 
+        {
             Explode();
         }
-        else if (hasPowerUp)
+        else if (hasPowerUp) 
         {
             uiMaster.toggleObject(powerUpImage);
-            if (powerUp == 1) {
-                uiMaster.toggleObject(uiMaster.detonatorPanel);
-                //detonatorObj.togglePanel();
-                playerBehavior.addPowerup("Detonator");
-                hasPowerUp = false; 
-                // Debug.Log("Detonator Collected!");
-            }
+        
+            gameMaster.powerUpsUsed++;
+
+        if (powerUp == 1) 
+        {
+            uiMaster.toggleObject(uiMaster.detonatorPanel);
+            playerBehavior.addPowerup("Detonator");
         }
-    }
+        
+            hasPowerUp = false; // Mark power-up as collected
+        }
+}
+
 
     private void countMines() {
         GameObject cell = gameObject;

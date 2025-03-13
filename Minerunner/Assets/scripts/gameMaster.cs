@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class gameMaster : MonoBehaviour
 {
     public static int totalMines;
@@ -25,6 +25,10 @@ public class gameMaster : MonoBehaviour
     public bool playerDead;
     public bool goalReached;
     public bool recursiveReveal;
+    private float levelStartTime;
+    public int powerUpsUsed = 0;  
+    public int cellsRevealed = 0; 
+    private string levelName;
     private Dictionary<Vector3, GameObject> cellPositionMap = new Dictionary<Vector3, GameObject>(); // Location of all cells
 
     public void setMines(int mines)
@@ -47,29 +51,33 @@ public class gameMaster : MonoBehaviour
     if (goalReached && !winPanel.activeSelf)
     {
         winPanel.SetActive(true); // Show win screen
-        TrySendingData();
+        
+        float levelTime = Time.time - levelStartTime;
+        TrySendingData(levelTime);
+       
     }
     else if (playerDead && !losePanel.activeSelf)
     {
         losePanel.SetActive(true); // Show lose screen
-        TrySendingData();
+        float levelTime = Time.time - levelStartTime;
+        TrySendingData(levelTime);
     }
 }
 
-private void TrySendingData()
-{
-    if (!hasSentData) // Prevents multiple sends to avoid the http 429 error
+private void TrySendingData(float levelTime)
     {
-        hasSentData = true;
-        StartCoroutine(DelayedSend());
+        if (!hasSentData)
+        {
+            hasSentData = true;
+            StartCoroutine(DelayedSend(levelTime));
+        }
     }
-}
 
-private IEnumerator DelayedSend()
+private IEnumerator DelayedSend(float levelTime)
 {
     yield return new WaitForSeconds(1); // Give UI time to update because the screen was not visible
     Debug.Log("Sending data to Google..."); 
-    google.Send(playerDead, goalReached); // Now send the data
+    google.Send(playerDead, goalReached, levelTime, powerUpsUsed, cellsRevealed, levelName);
 }
 
 
@@ -83,6 +91,8 @@ private IEnumerator DelayedSend()
     void Start()
     {
         google = FindObjectOfType<sendToGoogle>(); 
+        levelStartTime = Time.time;
+        levelName = SceneManager.GetActiveScene().name;
         if (google == null)
         {
             Debug.LogError("sendToGoogle script not found");
