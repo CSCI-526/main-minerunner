@@ -65,28 +65,22 @@ public class playerMovement : MonoBehaviour
     }
 
     private void movePlayer()
+{
+    if (playerCursor == null) return;
+
+    cellBehavior targetCell = playerCursor.getCursorCell().GetComponent<cellBehavior>();
+
+    if (!targetCell.empty && !targetCell.isFlagged())
     {
-        if (playerCursor == null)
-        {
-            return;
-        }
+        startPos = transform.position;
+        endPos = targetCell.gameObject.transform.position;
+        playerMoving = true;
 
-        GameObject targetCell = playerCursor.getCursorCell();
-
-        if (!targetCell.GetComponent<cellBehavior>().empty)
-        {
-            startPos = transform.position;
-            endPos = targetCell.transform.position;
-            playerMoving = true;
-
-            playerCell = targetCell;
-            playerCell.GetComponent<cellBehavior>().setPlayerOn(true);
-            playerCell.GetComponent<cellBehavior>().reveal();
-            // if (!playerCell.GetComponent<cellBehavior>().revealed)
-            // {
-            // }
-        }
+        playerCell = playerCursor.getCursorCell();
+        targetCell.setPlayerOn(true);
+        targetCell.reveal();
     }
+}
 
     private void instantiatePlayerCursor()
     {
