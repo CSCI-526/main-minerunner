@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class cellBehavior : MonoBehaviour
 {
-    private bool flagged, isGoal, playerOn;
+    private bool isGoal, playerOn;
     public bool hasPowerUp, hasMine, empty, revealed;
     public int powerUp;
     public GameObject powerUpImage;
@@ -18,7 +18,8 @@ public class cellBehavior : MonoBehaviour
     private uiMaster uiMaster;
     private GameObject numberPrefab;
     public GameObject explosionEffect;
-
+    public GameObject flagIcon;
+    private bool flagged = false;
     private GameObject[] neighbours;
 
     // Start is called before the first frame update
@@ -231,5 +232,20 @@ public class cellBehavior : MonoBehaviour
             neighbor.GetComponent<cellBehavior>().decrementMineCount();
             neighbor.GetComponent<cellBehavior>().instantiateNumberPrefab();
         }
+    }
+
+    public void setFlagged(bool value)
+    {
+        flagged = value;
+
+        if (flagIcon != null)
+        {
+            flagIcon.SetActive(value); // This toggles the image
+        }
+    }
+
+    public bool isFlagged()
+    {
+        return flagged;
     }
 }
