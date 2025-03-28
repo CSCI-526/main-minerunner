@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4338115587933371943}
   m_Layer: 0
   m_Name: Blocked
-  m_TagString: Untagged
+  m_TagString: Cell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a7c613c5a5e2441a39c1f60e6e687c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasPowerUp: 0
   hasMine: 0
   empty: 1
+  revealed: 0
+  powerUp: 0
+  powerUpImage: {fileID: 0}
   explosionEffect: {fileID: 0}
+  flagIcon: {fileID: 0}

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class gameMaster : MonoBehaviour
 {
     public static int totalMines;
-    [SerializeField] public GameObject[] cells;  // Manually assigned thorugh Unity
     public GameObject startCell;
     public GameObject endCell;
     public GameObject winPanel;
@@ -29,6 +28,7 @@ public class gameMaster : MonoBehaviour
     public int powerUpsUsed = 0;  
     public int cellsRevealed = 0; 
     private string levelName;
+    private GameObject[] cells;
     private Dictionary<Vector3, GameObject> cellPositionMap = new Dictionary<Vector3, GameObject>(); // Location of all cells
 
     public void setMines(int mines)
@@ -84,6 +84,7 @@ private IEnumerator DelayedSend(float levelTime)
     //Awake() is called before Start()
     void Awake()
     {
+        detectAllCells();
         createCellAdjacencyMap();
     }
 
@@ -152,6 +153,17 @@ private IEnumerator DelayedSend(float levelTime)
 
             //Assign list of neighbours to every cell
             cell.GetComponent<cellBehavior>().setNeighbours(adjacentCells);
+        }
+    }
+
+    private void detectAllCells() {
+        cells = GameObject.FindGameObjectsWithTag("Cell");
+        Debug.Log("Cells found: " + cells.Length);
+        
+        foreach (GameObject cell in cells) {
+            if (cell.GetComponent<cellBehavior>() == null) {
+                Debug.LogError("cellBehavior is missing on: " + cell.name);
+            }
         }
     }
 }

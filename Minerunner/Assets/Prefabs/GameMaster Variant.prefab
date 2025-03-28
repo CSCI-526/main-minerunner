@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameMaster Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 343784829805273974, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1674265308604705092, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.086369
@@ -78,7 +82,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8590db3fe6415c4488a2f29d27317af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cells: []
   startCell: {fileID: 0}
   endCell: {fileID: 0}
   winPanel: {fileID: 0}
@@ -102,3 +105,5 @@ MonoBehaviour:
   playerDead: 0
   goalReached: 0
   recursiveReveal: 0
+  powerUpsUsed: 0
+  cellsRevealed: 0
