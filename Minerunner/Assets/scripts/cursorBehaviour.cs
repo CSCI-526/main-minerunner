@@ -14,61 +14,133 @@ public class cursorBehaviour : MonoBehaviour
     private Vector3 endPos;
     private GameObject cursorCell;
     private GameObject player;
+    private GameObject lastMovementCell;
+    public enum CursorMode { Movement, Flagging }
+    private CursorMode currentMode = CursorMode.Movement;
 
-    // Start is called before the first frame update
+    public Material movementMaterial;
+    public Material flagMaterial;
+
     void Start()
     {
         gameMaster = FindObjectOfType<gameMaster>();
+        UpdateCursorVisual();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cursorMoving)
+        // Toggle mode
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            elapsedTime += Time.deltaTime;
-            float movePercent = elapsedTime / cursorMoveDuration;
-            transform.position = Vector3.Lerp(startPos, endPos, movePercent);
-            if (movePercent >= 1)
-            {
-                transform.position = endPos;
-                cursorMoving = false;
-                elapsedTime = 0;
-            }
+            ToggleMode();
         }
-        else
+
+        // Always allow movement
+        if (!cursorMoving)
         {
             handleCursorMovement();
         }
-    }
-
-    private void handleCursorMovement() {
-        if (gameMaster.goalReached || gameMaster.playerDead) {
-            return;
+        else
+        {
+            HandleSmoothMovement();
         }
 
-        if (Input.GetKeyDown(KeyCode.W)) moveCursor(1); // Up
-        if (Input.GetKeyDown(KeyCode.A)) moveCursor(3); // Left
-        if (Input.GetKeyDown(KeyCode.D)) moveCursor(4); // Right
-        if (Input.GetKeyDown(KeyCode.S)) moveCursor(6); // Down
+        // Handle flagging only in Flag mode
+        if (currentMode == CursorMode.Flagging && Input.GetKeyDown(KeyCode.Return))
+        {
+            ToggleFlagOnCell();
+        }
     }
 
-    private void moveCursor(int direction) {
-        // These are directions that correspond to indecies in the cellAdjacencyMap in gameMaster
-        //   -1    move to cursor
-        //    1    up
-        //    3    left
-        //    4    right
-        //    6    down
+    private void HandleSmoothMovement()
+    {
+        elapsedTime += Time.deltaTime;
+        float movePercent = elapsedTime / cursorMoveDuration;
+        transform.position = Vector3.Lerp(startPos, endPos, movePercent);
+        if (movePercent >= 1)
+        {
+            transform.position = endPos;
+            cursorMoving = false;
+            elapsedTime = 0;
+        }
+    }
 
+    public CursorMode GetCursorMode()
+    {
+        return currentMode;
+    }
+
+    private void handleCursorMovement()
+    {
+        if (gameMaster.goalReached || gameMaster.playerDead) return;
+
+        if (Input.GetKeyDown(KeyCode.W)) moveCursor(1);
+        if (Input.GetKeyDown(KeyCode.A)) moveCursor(3);
+        if (Input.GetKeyDown(KeyCode.D)) moveCursor(4);
+        if (Input.GetKeyDown(KeyCode.S)) moveCursor(6);
+    }
+
+    private void moveCursor(int direction)
+    {
         GameObject targetCell = cursorCell.GetComponent<cellBehavior>().getNeighbours()[direction];
 
-        if (targetCell != null && player.GetComponent<playerMovement>().isInRange(targetCell)) {
-            
-            startPos = transform.position;
-            endPos = new Vector3(targetCell.transform.position.x, cursorHeight, targetCell.transform.position.z);
-            cursorMoving = true;
-            cursorCell = targetCell;
+        // Restrict by range in Movement mode
+        if (targetCell != null)
+        {
+            bool inMovementMode = currentMode == CursorMode.Movement;
+            bool isValidMove = !inMovementMode || player.GetComponent<playerMovement>().isInRange(targetCell);
+
+            if (isValidMove)
+            {
+                startPos = transform.position;
+                endPos = new Vector3(targetCell.transform.position.x, cursorHeight, targetCell.transform.position.z);
+                cursorMoving = true;
+                cursorCell = targetCell;
+            }
+        }
+    }
+
+    private void ToggleFlagOnCell()
+    {
+        if (cursorCell != null)
+        {
+            cellBehavior cb = cursorCell.GetComponent<cellBehavior>();
+            if (cb != null)
+            {
+                cb.setFlagged(!cb.isFlagged());
+            }
+        }
+    }
+
+    private void ToggleMode()
+    {
+        if (currentMode == CursorMode.Movement)
+        {
+            // Switching to Flag Mode → Save current cell
+            lastMovementCell = cursorCell;
+            currentMode = CursorMode.Flagging;
+        }
+        else
+        {
+            // Switching back to Movement Mode → Restore last movement cell
+            currentMode = CursorMode.Movement;
+
+            if (lastMovementCell != null)
+            {
+                setCursorCell(lastMovementCell);
+            }
+        }
+
+        UpdateCursorVisual();
+    }
+
+    private void UpdateCursorVisual()
+    {
+        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        if (renderer != null)
+        {
+            renderer.material = currentMode == CursorMode.Movement ? movementMaterial : flagMaterial;
         }
     }
 
@@ -80,6 +152,7 @@ public class cursorBehaviour : MonoBehaviour
     public void setCursorCell(GameObject obj)
     {
         cursorCell = obj;
+        transform.position = new Vector3(cursorCell.transform.position.x, cursorHeight, cursorCell.transform.position.z);
     }
 
     public GameObject getCursorCell()
