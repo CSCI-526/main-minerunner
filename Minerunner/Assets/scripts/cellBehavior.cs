@@ -14,6 +14,7 @@ public class cellBehavior : MonoBehaviour
     private int numMines;
     private gameMaster gameMaster;
     private playerBehavior playerBehavior;
+    private playerMovement playerMovement;
     //private detonator detonatorObj;
     private uiMaster uiMaster;
     private GameObject numberPrefab;
@@ -29,6 +30,7 @@ public class cellBehavior : MonoBehaviour
         revealed = false;
         gameMaster = FindObjectOfType<gameMaster>();
         playerBehavior = FindObjectOfType<playerBehavior>();
+        playerMovement = FindObjectOfType<playerMovement>();
         //detonatorObj = FindObjectOfType<detonator>();
         uiMaster = FindObjectOfType<uiMaster>();
         countMines();
@@ -182,14 +184,17 @@ public class cellBehavior : MonoBehaviour
         else if (hasPowerUp) 
         {
             uiMaster.toggleObject(powerUpImage);
-        
-            gameMaster.powerUpsUsed++;
 
-        if (powerUp == 1) 
-        {
-            uiMaster.toggleObject(uiMaster.detonatorPanel);
-            playerBehavior.addPowerup("Detonator");
-        }
+            if (powerUp == 1) 
+            {
+                uiMaster.toggleObject(uiMaster.detonatorPanel);
+                playerBehavior.addPowerup("Detonator");
+            }
+            else if (powerUp == 2)
+            {
+                uiMaster.toggleObject(uiMaster.rangeUpPanel);
+                playerMovement.addMoveRange(1);
+            }
         
             hasPowerUp = false; // Mark power-up as collected
         }

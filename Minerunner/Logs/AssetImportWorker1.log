@@ -2,8 +2,13 @@ Unity Editor version:    2022.3.59f1 (630718f645a5)
 Branch:                  2022.3/staging
 Build type:              Release
 Batch mode:              YES
+<<<<<<< HEAD
 macOS version:           Version 15.3.1 (Build 24D70)
 Darwin version:          24.3.0
+=======
+macOS version:           Version 13.2.1 (Build 22D68)
+Darwin version:          22.3.0
+>>>>>>> 9e1a27223e2565fc0ebb1931d1e651677bbb994b
 Architecture:            arm64
 Running under Rosetta:   NO
 Available memory:        8192 MB
@@ -18,6 +23,7 @@ COMMAND LINE ARGUMENTS:
 -name
 AssetImportWorker1
 -projectPath
+<<<<<<< HEAD
 /Users/prakruthikrishna/Desktop/Unity Projects/main-minerunner/Minerunner
 -logFile
 Logs/AssetImportWorker1.log
@@ -25,6 +31,15 @@ Logs/AssetImportWorker1.log
 65208
 Successfully changed project path to: /Users/prakruthikrishna/Desktop/Unity Projects/main-minerunner/Minerunner
 /Users/prakruthikrishna/Desktop/Unity Projects/main-minerunner/Minerunner
+=======
+/Users/trevor/Desktop/CS526/main-minerunner/Minerunner
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+59262
+Successfully changed project path to: /Users/trevor/Desktop/CS526/main-minerunner/Minerunner
+/Users/trevor/Desktop/CS526/main-minerunner/Minerunner
+>>>>>>> 9e1a27223e2565fc0ebb1931d1e651677bbb994b
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -56,6 +71,7 @@ Successfully changed project path to: /Users/prakruthikrishna/Desktop/Unity Proj
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
+<<<<<<< HEAD
 Player connection [8693647424]  Target information:
 
 Player connection [8693647424]  * "[IP] 10.23.195.209 [Port] 0 [Flags] 2 [Guid] 451083723 [EditorId] 451083723 [Version] 1048832 [Id] OSXEditor(0,Prakruthis-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
@@ -75,10 +91,32 @@ Metal devices available: 1
 0: Apple M2 (high power)
 Using device Apple M2 (high power)
 Initializing Metal device caps: Apple M2
+=======
+Player connection [8250589504]  Target information:
+
+Player connection [8250589504]  * "[IP] 192.168.1.141 [Port] 0 [Flags] 2 [Guid] 2635365827 [EditorId] 2635365827 [Version] 1048832 [Id] OSXEditor(0,Trevors-Air.lan) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
+
+Player connection [8250589504] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8250589504] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+Refreshing native plugins compatible for Editor in 21.78 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.59f1 (630718f645a5)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2022.3.59f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/trevor/Desktop/CS526/main-minerunner/Minerunner/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+ preferred device: Apple M1 (high power)
+Metal devices available: 1
+0: Apple M1 (high power)
+Using device Apple M1 (high power)
+Initializing Metal device caps: Apple M1
+>>>>>>> 9e1a27223e2565fc0ebb1931d1e651677bbb994b
 Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2022.3.59f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2022.3.59f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/2022.3.59f1/Unity.app/Contents/MonoBleedingEdge/etc'
+<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56606
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -90,10 +128,26 @@ Mono: successfully reloaded assembly
 - Finished resetting the current domain, in  0.149 seconds
 Domain Reload Profiling: 449ms
 	BeginReloadAssembly (134ms)
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56191
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2022.3.59f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2022.3.59f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.003689 seconds.
+- Loaded All Assemblies, in  0.387 seconds
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.220 seconds
+Domain Reload Profiling: 606ms
+	BeginReloadAssembly (148ms)
+>>>>>>> 9e1a27223e2565fc0ebb1931d1e651677bbb994b
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 		CreateAndSetChildDomain (0ms)
 	RebuildCommonClasses (27ms)
 	RebuildNativeTypeToScriptingClass (7ms)
@@ -117,6 +171,31 @@ Domain Reload Profiling: 449ms
 			BeforeProcessingInitializeOnLoad (1ms)
 			ProcessInitializeOnLoadAttributes (85ms)
 			ProcessInitializeOnLoadMethodAttributes (26ms)
+=======
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (60ms)
+	LoadAllAssembliesAndSetupDomain (139ms)
+		LoadAssemblies (148ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (136ms)
+			TypeCache.Refresh (134ms)
+				TypeCache.ScanAssembly (115ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (220ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (173ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (123ms)
+			ProcessInitializeOnLoadMethodAttributes (38ms)
+>>>>>>> 9e1a27223e2565fc0ebb1931d1e651677bbb994b
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -125,16 +204,27 @@ Domain Reload Profiling: 449ms
 Worker process is ready to serve import requests
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
+<<<<<<< HEAD
 - Loaded All Assemblies, in  0.531 seconds
 Native extension for OSXStandalone target not found
 Mono: successfully reloaded assembly
 - Finished resetting the current domain, in  0.373 seconds
 Domain Reload Profiling: 904ms
 	BeginReloadAssembly (86ms)
+=======
+- Loaded All Assemblies, in  0.916 seconds
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.557 seconds
+Domain Reload Profiling: 1478ms
+	BeginReloadAssembly (136ms)
+>>>>>>> 9e1a27223e2565fc0ebb1931d1e651677bbb994b
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 		CreateAndSetChildDomain (19ms)
 	RebuildCommonClasses (29ms)
 	RebuildNativeTypeToScriptingClass (8ms)
@@ -170,6 +260,43 @@ Unloading 4149 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 32 unused Assets / (30.2 KB). Loaded Objects now: 4642.
 Memory consumption went from 167.9 MB to 167.9 MB.
 Total: 6.274333 ms (FindLiveObjects: 0.456875 ms CreateObjectMapping: 0.084375 ms MarkObjects: 5.648208 ms  DeleteObjects: 0.084375 ms)
+=======
+		CreateAndSetChildDomain (46ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (695ms)
+		LoadAssemblies (472ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (257ms)
+			TypeCache.Refresh (236ms)
+				TypeCache.ScanAssembly (205ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (558ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (412ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (62ms)
+			ProcessInitializeOnLoadAttributes (302ms)
+			ProcessInitializeOnLoadMethodAttributes (38ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (3ms)
+Launching external process: /Applications/Unity/Hub/Editor/2022.3.59f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.29 seconds
+Refreshing native plugins compatible for Editor in 2.47 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4149 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 32 unused Assets / (30.2 KB). Loaded Objects now: 4642.
+Memory consumption went from 168.1 MB to 168.0 MB.
+Total: 7.823917 ms (FindLiveObjects: 0.521375 ms CreateObjectMapping: 0.077250 ms MarkObjects: 6.613125 ms  DeleteObjects: 0.610292 ms)
+>>>>>>> 9e1a27223e2565fc0ebb1931d1e651677bbb994b
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -181,6 +308,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
   custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+<<<<<<< HEAD
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
@@ -383,3 +511,79 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+=======
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2154788.946865 seconds.
+  path: Assets/Prefabs/PlayerUI.prefab
+  artifactKey: Guid(5ea641da15d19c54f9b517eea4ad8fcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlayerUI.prefab using Guid(5ea641da15d19c54f9b517eea4ad8fcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '3b2078b1bab9ff526a61aec0b6d16cda') in 0.098637 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 146
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Assets/Prefabs/Detonator.prefab
+  artifactKey: Guid(de1767e04c2c734409e1628a3a9e6c7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Detonator.prefab using Guid(de1767e04c2c734409e1628a3a9e6c7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'd581242e50006f8cd2350d0304eaa3de') in 0.116816 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.000082 seconds.
+  path: Assets/Prefabs/manager.prefab
+  artifactKey: Guid(06a394f4707b5104fadb4cc7791c2e74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/manager.prefab using Guid(06a394f4707b5104fadb4cc7791c2e74) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '872082bc61a7c9e644d83b44146aa90c') in 0.242158 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 27.964676 seconds.
+  path: Assets/sprites/3.png
+  artifactKey: Guid(9c84bf6e66bc9744d970274cc5412578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprites/3.png using Guid(9c84bf6e66bc9744d970274cc5412578) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '21c690b65803821a377ccf309eff5bb2') in 0.154107 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/sprites/7.png
+  artifactKey: Guid(0a6058ba04386814f86f86283ad7cd33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprites/7.png using Guid(0a6058ba04386814f86f86283ad7cd33) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '97bf8de046c0f64030e34a340a2adcd8') in 0.019693 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 19.996788 seconds.
+  path: Assets/Prefabs/Mine.prefab
+  artifactKey: Guid(375f0fd9268cc0e4bb27c000a7a388e1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Mine.prefab using Guid(375f0fd9268cc0e4bb27c000a7a388e1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '279ea0d4ce62d12f629d5afd1e45a66d') in 0.250221 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 18
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/scripts/detonator.cs
+  artifactKey: Guid(605775362ab22854386ddbb019af2958) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/scripts/detonator.cs using Guid(605775362ab22854386ddbb019af2958) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '144fc3f17dfa44a158c0d00e141af8f7') in 0.004685 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 89, details: Operation aborted.
+AssetImportWorker is now disconnected from the server
+Process exiting
+>>>>>>> 9e1a27223e2565fc0ebb1931d1e651677bbb994b

@@ -16,6 +16,7 @@ public class uiMaster : MonoBehaviour
     public GameObject powerupsPanel;
     public TextMeshProUGUI powerupText;
     public GameObject detonatorPanel;
+    public GameObject rangeUpPanel;
     public string nextLevelName;
     public void loseLife()
     {
