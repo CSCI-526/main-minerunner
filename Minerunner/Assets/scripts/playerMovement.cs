@@ -13,7 +13,9 @@ public class playerMovement : MonoBehaviour
     private float elapsedTime = 0f;
     private Vector3 startPos;
     private Vector3 endPos;
-    public double movementRange;
+    
+    public static double permaMoveRange;
+    public double movementRange = 0;
     public GameObject playerCell;
     public GameObject playerCursorPrefab;
 
@@ -25,7 +27,15 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         gameMaster = FindObjectOfType<gameMaster>();
-        movementRange = Math.Sqrt(2*(movementRange * movementRange));
+        if (permaMoveRange == 0)
+        {
+            movementRange = Math.Sqrt(2*(movementRange * movementRange));
+            permaMoveRange = movementRange;
+        }
+        else
+        {
+            movementRange = permaMoveRange;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -101,5 +111,6 @@ public class playerMovement : MonoBehaviour
         movementRange = Math.Sqrt(movementRange * movementRange / 2);
         movementRange += i;
         movementRange = Math.Sqrt(2*(movementRange * movementRange));
+        permaMoveRange = movementRange;
     }
 }
