@@ -95,4 +95,11 @@ public class playerMovement : MonoBehaviour
     {
         return playerCursor;
     }
+
+    public void addMoveRange(int i)
+    {
+        movementRange = Math.Sqrt(movementRange * movementRange / 2);
+        movementRange += i;
+        movementRange = Math.Sqrt(2*(movementRange * movementRange));
+    }
 }

@@ -94,6 +94,8 @@ public class playerBehavior : MonoBehaviour
         if (playerCursor == null) {
             return;
         }
+
+        gameMaster.powerUpsUsed++;
         
         cellBehavior cursorCell = playerCursor.getCursorCell().GetComponent<cellBehavior>();
         if (!cursorCell.revealed)
