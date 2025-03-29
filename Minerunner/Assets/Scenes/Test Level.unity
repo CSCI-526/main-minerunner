@@ -4065,6 +4065,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   URL: https://docs.google.com/forms/u/1/d/e/1FAIpQLSchVU1vKgnxkC0roeV8O5W9gRO7nW3iSANHu0alP85dCJ18PQ/formResponse
+--- !u!4 &1769166718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2842216566697090178, guid: 75b34198aa48c0d4da56f9a80b977d99, type: 3}
+  m_PrefabInstance: {fileID: 710972826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1769996354 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3764684210223761851, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
@@ -4504,6 +4509,7 @@ GameObject:
   - component: {fileID: 2027185764}
   - component: {fileID: 2027185763}
   - component: {fileID: 2027185762}
+  - component: {fileID: 2027185765}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4579,12 +4585,27 @@ Transform:
   m_GameObject: {fileID: 2027185761}
   serializedVersion: 2
   m_LocalRotation: {x: -0.52003884, y: -0.0017859639, z: 0.0010908619, w: -0.8541401}
-  m_LocalPosition: {x: 4, y: 10, z: -4.62}
+  m_LocalPosition: {x: -0.3, y: 7.5, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 23.387, y: 45, z: 0}
+--- !u!114 &2027185765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027185761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091bdb06cac92cf4d8bea2459bf65d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1769166718}
+  offset: {x: 1.7, y: 7.5, z: -2.5}
+  smoothSpeed: 0.125
 --- !u!1 &2078923036 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 343784829805273974, guid: 7966fd10301a87f4eb87145d8f28d007, type: 3}
@@ -4773,6 +4794,10 @@ PrefabInstance:
       propertyPath: numberHeight
       value: 0.49
       objectReference: {fileID: 0}
+    - target: {fileID: 5524346445071447121, guid: 1b50cf3988406dc469d6577dda3aa887, type: 3}
+      propertyPath: hiddenMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f713a0290f0ff20409839f7ee4275b3c, type: 2}
     - target: {fileID: 5524346445071447121, guid: 1b50cf3988406dc469d6577dda3aa887, type: 3}
       propertyPath: recursiveReveal
       value: 0
@@ -5200,9 +5225,9 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 2027185764}
   - {fileID: 1697661407}
   - {fileID: 757050524}
+  - {fileID: 2027185764}
   - {fileID: 710972826}
   - {fileID: 4292744163348786424}
   - {fileID: 6778525822046781629}
