@@ -11,6 +11,8 @@ public class uiMaster : MonoBehaviour
     public Image[] lives;  // Assign all GameObjects in the Unity Inspector
     public int livesRemaining;
     //private gameMaster gameMaster;
+    private playerMovement player;
+    private double currentMoveRange;
     public GameObject instructionsPanel;
     public Button instructionsButton;
     public GameObject powerupsPanel;
