@@ -14,6 +14,7 @@ public class gameMaster : MonoBehaviour
     public GameObject losePanel;
     public GameObject[] numberPrefabs;
     public float numberHeight;
+    
     sendToGoogle google;
     [SerializeField] public Material revealedMaterial;
     [SerializeField] public Material startMaterial;
@@ -29,6 +30,8 @@ public class gameMaster : MonoBehaviour
     public int cellsRevealed = 0; 
     private string levelName;
     private GameObject[] cells;
+    private int totalCells;
+
     private Dictionary<Vector3, GameObject> cellPositionMap = new Dictionary<Vector3, GameObject>(); // Location of all cells
 
     public void setMines(int mines)
@@ -77,7 +80,7 @@ private IEnumerator DelayedSend(float levelTime)
 {
     yield return new WaitForSeconds(1); // Give UI time to update because the screen was not visible
     Debug.Log("Sending data to Google..."); 
-    google.Send(playerDead, goalReached, levelTime, powerUpsUsed, cellsRevealed, levelName);
+    google.Send(playerDead, goalReached, levelTime, powerUpsUsed, cellsRevealed,totalCells, levelName);
 }
 
 
@@ -158,12 +161,14 @@ private IEnumerator DelayedSend(float levelTime)
 
     private void detectAllCells() {
         cells = GameObject.FindGameObjectsWithTag("Cell");
-        Debug.Log("Cells found: " + cells.Length);
-        
+        totalCells = cells.Length; // Store the total number of cells
+        Debug.Log("Total Cells: " + totalCells);
+
         foreach (GameObject cell in cells) {
             if (cell.GetComponent<cellBehavior>() == null) {
                 Debug.LogError("cellBehavior is missing on: " + cell.name);
             }
         }
     }
+
 }

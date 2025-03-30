@@ -14,6 +14,7 @@ public class sendToGoogle : MonoBehaviour
     private float levelTime;
     private int powerUpsUsed;
     private int cellsRevealed;
+    private int totalCell;
     private string levelName;
 
     playerBehavior player;
@@ -28,7 +29,7 @@ public class sendToGoogle : MonoBehaviour
 
     void Update() { }
 
-    public void Send(bool playerdead, bool goal, float timeTaken, int powerUps, int cells, string level)
+    public void Send(bool playerdead, bool goal, float timeTaken, int powerUps, int cells, int tcells, string level)
     {
         lives = player.getLives();  // Link to the lives of player class
         goalReached = goal;  // From gameMaster
@@ -36,6 +37,7 @@ public class sendToGoogle : MonoBehaviour
         levelTime = timeTaken;
         powerUpsUsed = powerUps;
         cellsRevealed = cells;
+        totalCell = tcells;
         levelName = level;
 
         // Add delay before sending to prevent spamming
@@ -45,10 +47,10 @@ public class sendToGoogle : MonoBehaviour
     private IEnumerator DelayedSend()
     {
         yield return new WaitForSeconds(2); // Wait 2 seconds before sending
-        StartCoroutine(Post(sessionID.ToString(), lives.ToString(), goalReached.ToString(), playerDead.ToString(), levelTime.ToString(), powerUpsUsed.ToString(), cellsRevealed.ToString(), levelName));
+        StartCoroutine(Post(sessionID.ToString(), lives.ToString(), goalReached.ToString(), playerDead.ToString(), levelTime.ToString(), powerUpsUsed.ToString(), cellsRevealed.ToString(), totalCell.ToString(), levelName));
     }
 
-    private IEnumerator Post(string sessionNo, string live, string endReached, string playerUnalive, string timeTaken, string powerUps, string cells, string leveln)
+    private IEnumerator Post(string sessionNo, string live, string endReached, string playerUnalive, string timeTaken, string powerUps, string cells, string totalCell, string leveln)
     {
         WWWForm form = new WWWForm();
         form.AddField("entry.1864328021", sessionNo);
@@ -58,6 +60,7 @@ public class sendToGoogle : MonoBehaviour
         form.AddField("entry.300596042", timeTaken);
         form.AddField("entry.979365432", powerUps);
         form.AddField("entry.1869257303", cells);
+        form.AddField("entry.893787471", totalCell);
         form.AddField("entry.1036162266", leveln);
 
         int maxRetries = 5; // Maximum retry attempts
