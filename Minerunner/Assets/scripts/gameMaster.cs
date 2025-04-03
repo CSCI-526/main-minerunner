@@ -10,6 +10,7 @@ public class gameMaster : MonoBehaviour
     public GameObject endCell;
     public GameObject winPanel;
     public GameObject[] empty;
+    public GameObject[] portals;
     private bool hasSentData = false;
     public GameObject losePanel;
     public GameObject[] numberPrefabs;
@@ -21,6 +22,7 @@ public class gameMaster : MonoBehaviour
     [SerializeField] public Material endMaterial;
     [SerializeField] public Material hiddenMaterial;
     [SerializeField] public Material emptyMaterial;
+    [SerializeField] public Material portalMaterial;
 
     public bool playerDead;
     public bool goalReached;
@@ -119,6 +121,11 @@ public class gameMaster : MonoBehaviour
         for (int i = 0; i < empty.Length; i++)
         {
             empty[i].GetComponent<MeshRenderer>().material  = emptyMaterial;
+            //Debug.Log("TEST");
+        }
+        for (int i = 0; i < portals.Length; i++)
+        {
+            portals[i].GetComponent<MeshRenderer>().material = hiddenMaterial;
             //Debug.Log("TEST");
         }
     }

@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class cellBehavior : MonoBehaviour
 {
     private bool isGoal, playerOn;
-    public bool hasPowerUp, hasMine, empty, revealed;
+    public bool hasPowerUp, hasMine, empty, revealed, teleport;
     public int powerUp;
     public GameObject powerUpImage;
     private int numMines;
@@ -166,6 +166,7 @@ public class cellBehavior : MonoBehaviour
                 gameMaster.cellsRevealed++; // Track revealed cells
             }
 
+            
             gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
             this.revealed = true;
 
@@ -184,6 +185,7 @@ public class cellBehavior : MonoBehaviour
         {
             gameMaster.cellsRevealed++; // Track revealed cells
         }
+
 
         gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
         this.revealed = true;
