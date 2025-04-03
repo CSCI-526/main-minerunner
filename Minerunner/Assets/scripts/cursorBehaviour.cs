@@ -17,7 +17,8 @@ public class cursorBehaviour : MonoBehaviour
     private GameObject lastMovementCell;
     public enum CursorMode { Movement, Flagging }
     private CursorMode currentMode = CursorMode.Movement;
-
+    [SerializeField] private GameObject flagModeTextObject;
+    [SerializeField] private float flagTextDuration = 1.5f;
     public Material movementMaterial;
     public Material flagMaterial;
 
@@ -118,13 +119,13 @@ public class cursorBehaviour : MonoBehaviour
     {
         if (currentMode == CursorMode.Movement)
         {
-            // Switching to Flag Mode → Save current cell
             lastMovementCell = cursorCell;
             currentMode = CursorMode.Flagging;
+
+            ShowFlagModeText();
         }
         else
         {
-            // Switching back to Movement Mode → Restore last movement cell
             currentMode = CursorMode.Movement;
 
             if (lastMovementCell != null)
@@ -134,6 +135,24 @@ public class cursorBehaviour : MonoBehaviour
         }
 
         UpdateCursorVisual();
+    }
+
+    private void ShowFlagModeText()
+    {
+        if (flagModeTextObject != null)
+        {
+            flagModeTextObject.SetActive(true);
+            CancelInvoke(nameof(HideFlagModeText));
+            Invoke(nameof(HideFlagModeText), flagTextDuration);
+        }
+    }
+
+    private void HideFlagModeText()
+    {
+        if (flagModeTextObject != null)
+        {
+            flagModeTextObject.SetActive(false);
+        }
     }
 
     private void UpdateCursorVisual()

@@ -284,13 +284,20 @@ public class cellBehavior : MonoBehaviour
 
     public void setFlagged(bool value)
     {
+        // Prevent flagging a revealed cell
+        if (revealed)
+        {
+            return;
+        }
+
         flagged = value;
 
         if (flagIcon != null)
         {
-            flagIcon.SetActive(value); // This toggles the image
+            flagIcon.SetActive(value); // Toggle flag icon visibility
         }
     }
+
 
     public bool isFlagged()
     {
