@@ -84,7 +84,7 @@ public class cursorBehaviour : MonoBehaviour
     private void moveCursor(int direction)
     {
         GameObject targetCell = cursorCell.GetComponent<cellBehavior>().getNeighbours()[direction];
-        Debug.Log("targetCell: " + targetCell);
+        //Debug.Log("targetCell: " + targetCell);
 
         // Restrict by range in Movement mode
         if (targetCell != null)

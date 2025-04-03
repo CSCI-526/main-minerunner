@@ -10,7 +10,7 @@ public class gameMaster : MonoBehaviour
     public GameObject endCell;
     public GameObject winPanel;
     public GameObject[] empty;
-     private bool hasSentData = false;
+    private bool hasSentData = false;
     public GameObject losePanel;
     public GameObject[] numberPrefabs;
     public float numberHeight;
@@ -25,12 +25,16 @@ public class gameMaster : MonoBehaviour
     public bool playerDead;
     public bool goalReached;
     public bool recursiveReveal;
-    public int currLevel;
+    public static int currHighestLevel = 0;
+    //private static int permaCurrLevel = -1;
     private float levelStartTime;
     public int powerUpsUsed = 0;  
     public int cellsRevealed = 0; 
+
     public bool isLevelSelect;
     private string levelName;
+    //Change this to work with data structure later
+    public int levelNum;
     private GameObject[] cells;
     private int totalCells;
 
@@ -56,6 +60,10 @@ public class gameMaster : MonoBehaviour
         if (goalReached && !winPanel.activeSelf)
         {
             winPanel.SetActive(true); // Show win screen
+            if (levelNum > currHighestLevel)
+            {
+                currHighestLevel = levelNum;
+            }
             
             float levelTime = Time.time - levelStartTime;
             TrySendingData(levelTime);

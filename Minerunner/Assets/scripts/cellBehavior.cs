@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 // forward declaration needs to be done to deal with circular dependancy
@@ -19,7 +21,11 @@ public class cellBehavior : MonoBehaviour
     private uiMaster uiMaster;
     private GameObject numberPrefab;
     public bool isLevel;
+
+    //Might make this into a dictionary later
     public int levelNum;
+    public String levelName;
+
     public GameObject explosionEffect;
     public GameObject flagIcon;
     private bool flagged = false;
@@ -50,10 +56,10 @@ public class cellBehavior : MonoBehaviour
 
         if (isLevel)
         {
-            if (gameMaster.currLevel >= levelNum)
+            if (gameMaster.currHighestLevel + 1 >= levelNum)
             {
                 unblock();
-                Debug.Log((gameObject.GetComponent<MeshRenderer>().material) == gameMaster.revealedMaterial);
+                Debug.Log(gameObject.GetComponent<MeshRenderer>().material == gameMaster.revealedMaterial);
             }
         }
     }
@@ -86,6 +92,13 @@ public class cellBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Update()
+    {
+        if (!empty && isLevel && gameObject.GetComponent<MeshRenderer>().material != gameMaster.revealedMaterial)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+        }
+    }
     private void Explode()
     {
         if (explosionEffect != null)
@@ -223,6 +236,11 @@ public class cellBehavior : MonoBehaviour
         
             hasPowerUp = false; // Mark power-up as collected
         }
+
+        if (isLevel)
+        {
+            SceneManager.LoadScene(levelName);
+        }
 }
 
 
@@ -281,8 +299,9 @@ public class cellBehavior : MonoBehaviour
 
     private void unblock()
     {
-        //Debug.Log("Hi");
+        Debug.Log("Unblock before: " + gameObject.GetComponent<MeshRenderer>().material);
         empty = false;
         gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+        Debug.Log("Unblock after: " + gameObject.GetComponent<MeshRenderer>().material);
     }
 }
