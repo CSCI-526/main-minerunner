@@ -22,11 +22,6 @@ public class playerMovement : MonoBehaviour
     void Awake()
     {
         instantiatePlayerCursor();
-    }
-
-    void Start()
-    {
-        gameMaster = FindObjectOfType<gameMaster>();
         if (permaMoveRange == 0)
         {
             movementRange = Math.Sqrt(2*(movementRange * movementRange));
@@ -36,6 +31,11 @@ public class playerMovement : MonoBehaviour
         {
             movementRange = permaMoveRange;
         }
+    }
+
+    void Start()
+    {
+        gameMaster = FindObjectOfType<gameMaster>();
     }
     // Update is called once per frame
     void Update()

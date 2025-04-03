@@ -38,6 +38,13 @@ public class cellBehavior : MonoBehaviour
         {
             instantiateNumberPrefab();
         }
+        
+        
+        if (powerUp == 2 && playerMovement.movementRange >= 2)
+        {
+            //Debug.Log("Test: " + playerMovement.movementRange);
+            uiMaster.toggleObject(powerUpImage);
+        }
     }
 
     public void incrementMineCount() {
@@ -183,15 +190,17 @@ public class cellBehavior : MonoBehaviour
         }
         else if (hasPowerUp) 
         {
-            uiMaster.toggleObject(powerUpImage);
 
             if (powerUp == 1) 
             {
+                uiMaster.toggleObject(powerUpImage);
                 uiMaster.toggleObject(uiMaster.detonatorPanel);
                 playerBehavior.addPowerup("Detonator");
             }
-            else if (powerUp == 2)
+            else if (powerUp == 2 && playerMovement.movementRange <= 2)
             {
+                //Debug.Log("Test: " + playerMovement.movementRange);
+                uiMaster.toggleObject(powerUpImage);
                 uiMaster.toggleObject(uiMaster.rangeUpPanel);
                 playerMovement.addMoveRange(1);
             }
