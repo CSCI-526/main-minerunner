@@ -25,9 +25,11 @@ public class gameMaster : MonoBehaviour
     public bool playerDead;
     public bool goalReached;
     public bool recursiveReveal;
+    public int currLevel;
     private float levelStartTime;
     public int powerUpsUsed = 0;  
     public int cellsRevealed = 0; 
+    public bool isLevelSelect;
     private string levelName;
     private GameObject[] cells;
     private int totalCells;
@@ -50,24 +52,24 @@ public class gameMaster : MonoBehaviour
     }
 
     private void handleGameEnd()
-{
-    if (goalReached && !winPanel.activeSelf)
     {
-        winPanel.SetActive(true); // Show win screen
+        if (goalReached && !winPanel.activeSelf)
+        {
+            winPanel.SetActive(true); // Show win screen
+            
+            float levelTime = Time.time - levelStartTime;
+            TrySendingData(levelTime);
         
-        float levelTime = Time.time - levelStartTime;
-        TrySendingData(levelTime);
-       
+        }
+        else if (playerDead && !losePanel.activeSelf)
+        {
+            losePanel.SetActive(true); // Show lose screen
+            float levelTime = Time.time - levelStartTime;
+            TrySendingData(levelTime);
+        }
     }
-    else if (playerDead && !losePanel.activeSelf)
-    {
-        losePanel.SetActive(true); // Show lose screen
-        float levelTime = Time.time - levelStartTime;
-        TrySendingData(levelTime);
-    }
-}
 
-private void TrySendingData(float levelTime)
+    private void TrySendingData(float levelTime)
     {
         if (!hasSentData)
         {
@@ -76,12 +78,12 @@ private void TrySendingData(float levelTime)
         }
     }
 
-private IEnumerator DelayedSend(float levelTime)
-{
-    yield return new WaitForSeconds(1); // Give UI time to update because the screen was not visible
-    Debug.Log("Sending data to Google..."); 
-    google.Send(playerDead, goalReached, levelTime, powerUpsUsed, cellsRevealed,totalCells, levelName);
-}
+    private IEnumerator DelayedSend(float levelTime)
+    {
+        yield return new WaitForSeconds(1); // Give UI time to update because the screen was not visible
+        Debug.Log("Sending data to Google..."); 
+        google.Send(playerDead, goalReached, levelTime, powerUpsUsed, cellsRevealed,totalCells, levelName);
+    }
 
 
     //Awake() is called before Start()
@@ -109,6 +111,7 @@ private IEnumerator DelayedSend(float levelTime)
         for (int i = 0; i < empty.Length; i++)
         {
             empty[i].GetComponent<MeshRenderer>().material  = emptyMaterial;
+            //Debug.Log("TEST");
         }
     }
 
@@ -124,7 +127,10 @@ private IEnumerator DelayedSend(float levelTime)
         //store location of all cells
         foreach (GameObject cell in cells) {
             cellPositionMap[cell.transform.position] = cell;
-            cell.GetComponent<MeshRenderer>().material = hiddenMaterial;
+            if (!isLevelSelect)
+            {
+                cell.GetComponent<MeshRenderer>().material = hiddenMaterial;
+            }
         }
 
         // These are our 8 directions, in the order of what they are stored as in the list

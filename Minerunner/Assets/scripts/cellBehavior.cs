@@ -18,6 +18,8 @@ public class cellBehavior : MonoBehaviour
     //private detonator detonatorObj;
     private uiMaster uiMaster;
     private GameObject numberPrefab;
+    public bool isLevel;
+    public int levelNum;
     public GameObject explosionEffect;
     public GameObject flagIcon;
     private bool flagged = false;
@@ -44,6 +46,15 @@ public class cellBehavior : MonoBehaviour
         {
             //Debug.Log("Test: " + playerMovement.movementRange);
             uiMaster.toggleObject(powerUpImage);
+        }
+
+        if (isLevel)
+        {
+            if (gameMaster.currLevel >= levelNum)
+            {
+                unblock();
+                Debug.Log((gameObject.GetComponent<MeshRenderer>().material) == gameMaster.revealedMaterial);
+            }
         }
     }
 
@@ -124,38 +135,43 @@ public class cellBehavior : MonoBehaviour
     }
 
     public void reveal()
-{
-    if (gameMaster.startCell == gameObject)
     {
-        return;
+        if (gameMaster.startCell == gameObject)
+        {
+            return;
+        }
+        else if (gameMaster.endCell == gameObject)
+        {
+            gameMaster.setGoal(true);
+            return;
+        }
+        else if (!empty)
+        {
+            
+            if (!revealed)
+            {
+                gameMaster.cellsRevealed++; // Track revealed cells
+            }
+
+            gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+            this.revealed = true;
+
+            activateCellItems();
+
+            if (gameMaster.recursiveReveal == true && numMines == 0)
+            {
+                recursiveReveal(); 
+            }
+        }
     }
-    else if (gameMaster.endCell == gameObject)
-    {
-        gameMaster.setGoal(true);
-        return;
-    }
-    else if (!empty)
-    {
-        
+
+
+    public void recursiveReveal() {
         if (!revealed)
         {
             gameMaster.cellsRevealed++; // Track revealed cells
         }
 
-        gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
-        this.revealed = true;
-
-        activateCellItems();
-
-        if (gameMaster.recursiveReveal == true && numMines == 0)
-        {
-            recursiveReveal(); 
-        }
-    }
-}
-
-
-    public void recursiveReveal() {
         gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
         this.revealed = true;
 
@@ -261,5 +277,12 @@ public class cellBehavior : MonoBehaviour
     public bool isFlagged()
     {
         return flagged;
+    }
+
+    private void unblock()
+    {
+        //Debug.Log("Hi");
+        empty = false;
+        gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
     }
 }
