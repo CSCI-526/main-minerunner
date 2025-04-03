@@ -250,7 +250,7 @@ public class cellBehavior : MonoBehaviour
         }
 
         numberPrefab = Instantiate(gameMaster.numberPrefabs[numMines - 1]);
-        numberPrefab.transform.position = new Vector3(this.transform.position.x, gameMaster.numberHeight, this.transform.position.z);
+        numberPrefab.transform.position = new Vector3(this.transform.position.x, gameMaster.numberHeight + this.transform.position.y, this.transform.position.z);
     }
 
     private void updateNeighborNums() {

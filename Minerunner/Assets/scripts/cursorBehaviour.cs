@@ -95,7 +95,7 @@ public class cursorBehaviour : MonoBehaviour
             if (isValidMove)
             {
                 startPos = transform.position;
-                endPos = new Vector3(targetCell.transform.position.x, cursorHeight, targetCell.transform.position.z);
+                endPos = new Vector3(targetCell.transform.position.x, cursorHeight + targetCell.transform.position.y, targetCell.transform.position.z);
                 cursorMoving = true;
                 cursorCell = targetCell;
             }
@@ -153,7 +153,7 @@ public class cursorBehaviour : MonoBehaviour
     public void setCursorCell(GameObject obj)
     {
         cursorCell = obj;
-        transform.position = new Vector3(cursorCell.transform.position.x, cursorHeight, cursorCell.transform.position.z);
+        transform.position = new Vector3(cursorCell.transform.position.x, cursorHeight + cursorCell.transform.position.y, cursorCell.transform.position.z);
     }
 
     public GameObject getCursorCell()
