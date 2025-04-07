@@ -19,7 +19,9 @@ public class uiMaster : MonoBehaviour
     public TextMeshProUGUI powerupText;
     public GameObject detonatorPanel;
     public GameObject rangeUpPanel;
+    public TextMeshProUGUI flagModeText;
     public string nextLevelName;
+     [SerializeField] private float flagTextDuration = 1.5f;
     public void loseLife()
     {
         livesRemaining --;
@@ -70,5 +72,22 @@ public class uiMaster : MonoBehaviour
     {
         SceneManager.LoadScene(nextLevelName);
     }
+
+    public void ShowFlagModeText()
+    {
+        if (flagModeText != null)
+        {
+            flagModeText.gameObject.SetActive(true);
+        }
+    }
+
+    public void HideFlagModeText()
+    {
+        if (flagModeText != null)
+        {
+            flagModeText.gameObject.SetActive(false);  // Hide the flag mode text when the flag mode is turned off
+        }
+    }
+
 
 }
