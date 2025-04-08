@@ -22,6 +22,7 @@ public class cursorBehaviour : MonoBehaviour
     private uiMaster uiMaster;
     [SerializeField] private GameObject flagSpriteObject;
     [SerializeField] private GameObject flagCursor;
+    [SerializeField] private GameObject defCursor;
     private SpriteRenderer flagSpriteRenderer; 
 
     void Start()
@@ -124,6 +125,7 @@ public class cursorBehaviour : MonoBehaviour
             currentMode = CursorMode.Flagging;
             if(flagCursor != null)
             {
+                defCursor.SetActive(false);
                 flagCursor.SetActive(true);
             }
 
@@ -156,6 +158,7 @@ public class cursorBehaviour : MonoBehaviour
 
             if (flagCursor != null)
             {
+                defCursor.SetActive(true);
                 flagCursor.SetActive(false);
             }
 
