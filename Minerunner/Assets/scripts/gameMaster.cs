@@ -41,6 +41,7 @@ public class gameMaster : MonoBehaviour
 
     public Dictionary<string, int> levelNameToNum = new Dictionary<string, int>()
     {
+        {"LevelSelectStart", -1},
         {"LevelSelect", 0},
         {"Tutorial", 1},
         {"Detonator Level", 2},
@@ -50,6 +51,7 @@ public class gameMaster : MonoBehaviour
     };
     public Dictionary<int, string> levelNumToName = new Dictionary<int, string>()
     {
+        {-1, "LevelSelectStart"},
         {0, "LevelSelect"},
         {1, "Tutorial"},
         {2, "Detonator Level"},
@@ -138,6 +140,7 @@ public class gameMaster : MonoBehaviour
         goalReached = false;
         playerDead = false;
         startCell.GetComponent<MeshRenderer>().material = startMaterial; // should be replaced with reveal function in future
+        //Debug.Log("START");
         endCell.GetComponent<MeshRenderer>().material = endMaterial;
         for (int i = 0; i < empty.Length; i++)
         {

@@ -59,7 +59,7 @@ public class cellBehavior : MonoBehaviour
             if (gameMaster.currHighestLevel + 1 >= levelNum)
             {
                 unblock();
-                Debug.Log(gameObject.GetComponent<MeshRenderer>().material == gameMaster.revealedMaterial);
+                //Debug.Log(gameObject.GetComponent<MeshRenderer>().material == gameMaster.revealedMaterial);
             }
         }
     }
@@ -94,9 +94,9 @@ public class cellBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!empty && isLevel && gameObject.GetComponent<MeshRenderer>().material != gameMaster.revealedMaterial)
+        if (!empty && isLevel && gameObject.GetComponent<MeshRenderer>().material != gameMaster.endMaterial)
         {
-            gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+            gameObject.GetComponent<MeshRenderer>().material = gameMaster.endMaterial;
         }
     }
     private void Explode()
@@ -308,9 +308,9 @@ public class cellBehavior : MonoBehaviour
 
     private void unblock()
     {
-        Debug.Log("Unblock before: " + gameObject.GetComponent<MeshRenderer>().material);
+        //Debug.Log("Unblock before: " + gameObject.GetComponent<MeshRenderer>().material);
         empty = false;
-        gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
-        Debug.Log("Unblock after: " + gameObject.GetComponent<MeshRenderer>().material);
+        gameObject.GetComponent<MeshRenderer>().material = gameMaster.endMaterial;
+        //Debug.Log("Unblock after: " + gameObject.GetComponent<MeshRenderer>().material);
     }
 }
