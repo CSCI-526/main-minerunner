@@ -20,7 +20,8 @@ public class cursorBehaviour : MonoBehaviour
     
     [SerializeField] private GameObject flagModeTextObject;     
     private uiMaster uiMaster;
-    [SerializeField] private GameObject flagSpriteObject; 
+    [SerializeField] private GameObject flagSpriteObject;
+    [SerializeField] private GameObject flagCursor;
     private SpriteRenderer flagSpriteRenderer; 
 
     void Start()
@@ -121,6 +122,10 @@ public class cursorBehaviour : MonoBehaviour
         {
             lastMovementCell = cursorCell;
             currentMode = CursorMode.Flagging;
+            if(flagCursor != null)
+            {
+                flagCursor.SetActive(true);
+            }
 
             // Show Flag Mode Text from uiMaster
             if (uiMaster != null)
@@ -147,6 +152,11 @@ public class cursorBehaviour : MonoBehaviour
             if (uiMaster != null)
             {
                 uiMaster.HideFlagModeText();
+            }
+
+            if (flagCursor != null)
+            {
+                flagCursor.SetActive(false);
             }
 
             // Hide the flag sprite when leaving flag mode
