@@ -287,7 +287,7 @@ public class cellBehavior : MonoBehaviour
     public void setFlagged(bool value)
     {
         // Prevent flagging a revealed cell
-        if (revealed)
+        if (revealed && value)
         {
             return;
         }
