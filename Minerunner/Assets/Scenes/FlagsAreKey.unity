@@ -1100,6 +1100,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
+--- !u!114 &774529431 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 930625484207523005, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 981605256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &796161544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1248,6 +1259,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: restartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 930625484207523005, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 930625484207523005, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 1965187090545000376, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1351,6 +1370,14 @@ PrefabInstance:
     - target: {fileID: 2589851673295010881, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadNextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767331051629532543, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -70.484566
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767331051629532543, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -112.77533
       objectReference: {fileID: 0}
     - target: {fileID: 4044914296794292234, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2810,6 +2837,10 @@ PrefabInstance:
       propertyPath: powerupText
       value: 
       objectReference: {fileID: 981605261}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: flagModeText
+      value: 
+      objectReference: {fileID: 774529431}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: rangeUpPanel
       value: 

@@ -17,18 +17,17 @@ public class cursorBehaviour : MonoBehaviour
     private GameObject lastMovementCell;
     public enum CursorMode { Movement, Flagging }
     private CursorMode currentMode = CursorMode.Movement;
-    [SerializeField] private GameObject flagModeTextObject; 
-
-    [SerializeField] private Material movementMaterial;
-    [SerializeField] private Material flagMaterial;
-
-    private uiMaster uiMaster;  // Reference to the uiMaster script
+    
+    [SerializeField] private GameObject flagModeTextObject;     
+    private uiMaster uiMaster;
+    [SerializeField] private GameObject flagSpriteObject; 
+    private SpriteRenderer flagSpriteRenderer; 
 
     void Start()
     {
         gameMaster = FindObjectOfType<gameMaster>();
-        uiMaster = FindObjectOfType<uiMaster>();  // Get reference to the UI master
-        UpdateCursorVisual();
+        uiMaster = FindObjectOfType<uiMaster>();  
+        flagSpriteRenderer = flagSpriteObject.GetComponent<SpriteRenderer>(); 
     }
 
     // Update is called once per frame
@@ -50,7 +49,6 @@ public class cursorBehaviour : MonoBehaviour
             HandleSmoothMovement();
         }
 
-        // Handle flagging only in Flag mode
         if (currentMode == CursorMode.Flagging && Input.GetKeyDown(KeyCode.Return))
         {
             ToggleFlagOnCell();
@@ -127,7 +125,13 @@ public class cursorBehaviour : MonoBehaviour
             // Show Flag Mode Text from uiMaster
             if (uiMaster != null)
             {
-                uiMaster.ShowFlagModeText(); // Call ShowFlagModeText on uiMaster
+                uiMaster.ShowFlagModeText();
+            }
+
+            // Show the flag sprite
+            if (flagSpriteRenderer != null)
+            {
+                flagSpriteObject.SetActive(true);
             }
         }
         else
@@ -142,26 +146,13 @@ public class cursorBehaviour : MonoBehaviour
             // Hide Flag Mode Text from uiMaster
             if (uiMaster != null)
             {
-                uiMaster.HideFlagModeText(); // Call HideFlagModeText on uiMaster
+                uiMaster.HideFlagModeText();
             }
-        }
 
-        UpdateCursorVisual();
-    }
-
-    private void UpdateCursorVisual()
-    {
-        MeshRenderer renderer = GetComponent<MeshRenderer>();
-        if (renderer != null)
-        {
-            // Set the material based on the current cursor mode (Movement or Flagging)
-            if (currentMode == CursorMode.Movement)
+            // Hide the flag sprite when leaving flag mode
+            if (flagSpriteRenderer != null)
             {
-                renderer.material = movementMaterial;  // Movement mode material
-            }
-            else if (currentMode == CursorMode.Flagging)
-            {
-                renderer.material = flagMaterial;  // Flag mode material (the flag material)
+                flagSpriteObject.SetActive(false);
             }
         }
     }

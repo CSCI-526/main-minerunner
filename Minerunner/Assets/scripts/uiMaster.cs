@@ -21,7 +21,6 @@ public class uiMaster : MonoBehaviour
     public GameObject rangeUpPanel;
     public TextMeshProUGUI flagModeText;
     public string nextLevelName;
-     [SerializeField] private float flagTextDuration = 1.5f;
     public void loseLife()
     {
         livesRemaining --;

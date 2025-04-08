@@ -494,6 +494,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1872354100011944154, guid: 375f0fd9268cc0e4bb27c000a7a388e1, type: 3}
   m_PrefabInstance: {fileID: 438663686}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &491296097 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 930625484207523005, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1870089573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &549933681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1619,6 +1630,10 @@ PrefabInstance:
       propertyPath: powerupText
       value: 
       objectReference: {fileID: 1870089575}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: flagModeText
+      value: 
+      objectReference: {fileID: 491296097}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: rangeUpPanel
       value: 
@@ -2746,6 +2761,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: restartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 930625484207523005, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 930625484207523005, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2008854869400466034, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2849,6 +2872,18 @@ PrefabInstance:
     - target: {fileID: 2589851673295010881, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadNextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358732296632573785, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767331051629532543, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -45.815002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767331051629532543, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -89.86783
       objectReference: {fileID: 0}
     - target: {fileID: 4044914296794292234, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
