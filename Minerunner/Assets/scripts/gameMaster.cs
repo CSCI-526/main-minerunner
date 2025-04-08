@@ -26,6 +26,7 @@ public class gameMaster : MonoBehaviour
 
     public bool playerDead;
     public bool goalReached;
+    public bool isPaused = false;
     public bool recursiveReveal;
     public static int currHighestLevel = 0;
     //private static int permaCurrLevel = -1;

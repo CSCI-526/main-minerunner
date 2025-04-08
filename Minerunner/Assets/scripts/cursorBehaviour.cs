@@ -77,7 +77,7 @@ public class cursorBehaviour : MonoBehaviour
 
     private void handleCursorMovement()
     {
-        if (gameMaster.goalReached || gameMaster.playerDead) return;
+        if (gameMaster.goalReached || gameMaster.playerDead || gameMaster.isPaused) return;
 
         if (Input.GetKeyDown(KeyCode.W)) moveCursor(1);
         if (Input.GetKeyDown(KeyCode.A)) moveCursor(3);
