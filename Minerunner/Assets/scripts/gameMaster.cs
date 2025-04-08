@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,26 @@ public class gameMaster : MonoBehaviour
     public bool isLevelSelect;
     private string levelName;
     //Change this to work with data structure later
-    public int levelNum;
+    private int levelNum;
+
+    public Dictionary<string, int> levelNameToNum = new Dictionary<string, int>()
+    {
+        {"LevelSelect", 0},
+        {"Tutorial", 1},
+        {"Detonator Level", 2},
+        {"FlagsAreKey", 3},
+        {"Test Level", 4},
+        {"SeekFind", 5},
+    };
+    public Dictionary<int, string> levelNumToName = new Dictionary<int, string>()
+    {
+        {0, "LevelSelect"},
+        {1, "Tutorial"},
+        {2, "Detonator Level"},
+        {3, "FlagsAreKey"},
+        {4, "Test Level"},
+        {5, "SeekFind"},
+    };
     private GameObject[] cells;
     private int totalCells;
 
@@ -109,6 +129,7 @@ public class gameMaster : MonoBehaviour
         google = FindObjectOfType<sendToGoogle>(); 
         levelStartTime = Time.time;
         levelName = SceneManager.GetActiveScene().name;
+        levelNum = levelNameToNum[levelName];
         if (google == null)
         {
             Debug.LogError("sendToGoogle script not found");

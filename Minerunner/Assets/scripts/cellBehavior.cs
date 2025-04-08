@@ -24,7 +24,7 @@ public class cellBehavior : MonoBehaviour
 
     //Might make this into a dictionary later
     public int levelNum;
-    public String levelName;
+    // public String levelName;
 
     public GameObject explosionEffect;
     public GameObject flagIcon;
@@ -241,7 +241,7 @@ public class cellBehavior : MonoBehaviour
 
         if (isLevel)
         {
-            SceneManager.LoadScene(levelName);
+            SceneManager.LoadScene(gameMaster.levelNumToName[levelNum]);
         }
 }
 
