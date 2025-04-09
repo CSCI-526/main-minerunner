@@ -1,19 +1,17 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
     private float cursorHeight = 1f;
     private gameMaster gameMaster;
-    private cursorBehaviour playerCursor;
+    private cursorBehaviour cursorScript;
     public bool playerMoving = false;
     private float playerMoveDuration = 0.2f;
     private float elapsedTime = 0f;
     private Vector3 startPos;
     private Vector3 endPos;
-    
+
     public static double permaMoveRange;
     public double movementRange = 0;
     public GameObject playerCell;
@@ -24,7 +22,7 @@ public class playerMovement : MonoBehaviour
         instantiatePlayerCursor();
         if (permaMoveRange == 0)
         {
-            movementRange = Math.Sqrt(2*(movementRange * movementRange));
+            movementRange = Math.Sqrt(2 * (movementRange * movementRange));
             permaMoveRange = movementRange;
         }
         else
@@ -37,7 +35,7 @@ public class playerMovement : MonoBehaviour
     {
         gameMaster = FindObjectOfType<gameMaster>();
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (playerMoving)
@@ -61,43 +59,44 @@ public class playerMovement : MonoBehaviour
     private void handlePlayerMovement()
     {
         if (gameMaster.goalReached || gameMaster.playerDead)
-        {
             return;
-        }
 
-        // Only move player if cursor is in Movement mode
         if (Input.GetKeyDown(KeyCode.Return) &&
-            playerCursor != null &&
-            playerCursor.GetCursorMode() == cursorBehaviour.CursorMode.Movement)
+            cursorScript != null &&
+            cursorScript.GetCursorMode() == cursorBehaviour.CursorMode.Movement)
         {
             movePlayer();
         }
     }
 
     private void movePlayer()
-{
-    if (playerCursor == null) return;
-
-    cellBehavior targetCell = playerCursor.getCursorCell().GetComponent<cellBehavior>();
-
-    if (!targetCell.empty && !targetCell.isFlagged())
     {
-        startPos = transform.position;
-        endPos = targetCell.gameObject.transform.position;
-        playerMoving = true;
+        if (cursorScript == null) return;
 
-        playerCell = playerCursor.getCursorCell();
-        targetCell.setPlayerOn(true);
-        targetCell.reveal();
+        cellBehavior targetCell = cursorScript.getCursorCell().GetComponent<cellBehavior>();
+
+        if (!targetCell.empty && !targetCell.isFlagged())
+        {
+            startPos = transform.position;
+            endPos = targetCell.gameObject.transform.position;
+            playerMoving = true;
+
+            playerCell = cursorScript.getCursorCell();
+            targetCell.setPlayerOn(true);
+            targetCell.reveal();
+        }
     }
-}
 
     private void instantiatePlayerCursor()
     {
-        playerCursor = Instantiate(playerCursorPrefab).GetComponent<cursorBehaviour>();
-        playerCursor.setPlayer(gameObject);
-        playerCursor.transform.position = new Vector3(playerCell.transform.position.x, cursorHeight, playerCell.transform.position.z);
-        playerCursor.setCursorCell(playerCell);
+        cursorScript = Instantiate(playerCursorPrefab).GetComponent<cursorBehaviour>();
+        cursorScript.setPlayer(gameObject);
+        cursorScript.transform.position = new Vector3(
+            playerCell.transform.position.x,
+            cursorHeight,
+            playerCell.transform.position.z
+        );
+        cursorScript.setCursorCell(playerCell);
     }
 
     public bool isInRange(GameObject targetCell)
@@ -111,14 +110,36 @@ public class playerMovement : MonoBehaviour
 
     public cursorBehaviour getCursor()
     {
-        return playerCursor;
+        return cursorScript;
     }
 
     public void addMoveRange(int i)
     {
         movementRange = Math.Sqrt(movementRange * movementRange / 2);
         movementRange += i;
-        movementRange = Math.Sqrt(2*(movementRange * movementRange));
+        movementRange = Math.Sqrt(2 * (movementRange * movementRange));
         permaMoveRange = movementRange;
+    }
+
+    //teleport method
+    public void TeleportToCell(GameObject destinationCell)
+    {
+        startPos = transform.position;
+        endPos = destinationCell.transform.position;
+        playerMoving = true;
+
+        playerCell = destinationCell;
+
+        if (cursorScript != null)
+        {
+            cursorScript.setCursorCell(destinationCell);
+        }
+
+        cellBehavior cell = destinationCell.GetComponent<cellBehavior>();
+        if (cell != null)
+        {
+            cell.setPlayerOn(true);
+            cell.reveal();
+        }
     }
 }
