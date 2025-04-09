@@ -48,8 +48,8 @@ public class gameMaster : MonoBehaviour
         {"FlagsAreKey", 3},
         {"Test Level", 4},
         {"SeekFind", 5},
-        {"Metamorphosis", 6},
-        {"LongerStride", 7},
+        {"LongerStride", 6},
+        {"Metamorphosis", 7},
         {"StraightForward",8},
     };
     public Dictionary<int, string> levelNumToName = new Dictionary<int, string>()
@@ -61,8 +61,8 @@ public class gameMaster : MonoBehaviour
         {3, "FlagsAreKey"},
         {4, "Test Level"},
         {5, "SeekFind"},
-        {6, "Metamorphosis"},
-        {7, "LongerStride" },
+        {6, "LongerStride" },
+        {7, "Metamorphosis"},
         {8, "StraightForward" },
     };
     private GameObject[] cells;
