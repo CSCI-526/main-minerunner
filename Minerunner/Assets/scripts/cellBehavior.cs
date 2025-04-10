@@ -225,7 +225,10 @@ public class cellBehavior : MonoBehaviour
             if (powerUp == 1) 
             {
                 uiMaster.toggleObject(powerUpImage);
-                uiMaster.toggleObject(uiMaster.detonatorPanel);
+                if (SceneManager.GetActiveScene().name == "Detonator Level")
+                {
+                    uiMaster.toggleObject(uiMaster.detonatorPanel);
+                }
                 playerBehavior.addPowerup("Detonator");
             }
             else if (powerUp == 2 && playerMovement.movementRange <= 2)

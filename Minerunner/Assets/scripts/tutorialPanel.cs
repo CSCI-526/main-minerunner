@@ -4,9 +4,9 @@ using UnityEngine.UI;
 public class TutorialPanel : MonoBehaviour
 {
     public Button closeButton;
-    public KeyCode key = KeyCode.Space;
+    private KeyCode key = KeyCode.Return;
     public GameObject screenCanvas;
-    public GameObject worldCanvas;
+    //public GameObject worldCanvas;
     private gameMaster gameMaster;
 
     void Start()
@@ -27,7 +27,7 @@ public class TutorialPanel : MonoBehaviour
 
     public void toggleTutorialPanel() {
         screenCanvas.SetActive(!screenCanvas.activeSelf);
-        worldCanvas.SetActive(!worldCanvas.activeSelf);
+        //worldCanvas.SetActive(!worldCanvas.activeSelf);
         gameMaster.isPaused = false;
     }
 }
