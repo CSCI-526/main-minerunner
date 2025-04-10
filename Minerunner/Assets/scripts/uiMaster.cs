@@ -73,6 +73,12 @@ public class uiMaster : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
+    public void LoadstartLevel()
+    {
+        //SceneManager.LoadScene(nextLevelName);
+        SceneManager.LoadScene("LevelSelectStart");
+    }
+
     public void ShowFlagModeText()
     {
         if (flagModeText != null)
