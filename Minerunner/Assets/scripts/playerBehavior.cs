@@ -84,6 +84,7 @@ public class playerBehavior : MonoBehaviour
             inventory[powerupType] = 1;
         }
         uiMaster.updatePowerupPanel(inventory);
+        FindObjectOfType<uiMaster>().AnimateDetonatorPickupFromWorld(transform.position);
     }
 
 

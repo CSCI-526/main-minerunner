@@ -565,9 +565,14 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &171241398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2086435808045568962, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+  m_PrefabInstance: {fileID: 6778525822046781629}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &180177776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 343784829805273974, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
@@ -1524,6 +1529,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1872354100011944154, guid: 375f0fd9268cc0e4bb27c000a7a388e1, type: 3}
   m_PrefabInstance: {fileID: 278056398}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &540484656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1047518108003873136, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 335258937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &601961965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 343784829805273974, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
@@ -3086,6 +3102,16 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1674265308604705092, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
   m_PrefabInstance: {fileID: 1953890564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1355728862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2148885750151886878, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 335258937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1355728863 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3100581124100007040, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 335258937}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1364562190 stripped
 GameObject:
@@ -5141,6 +5167,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 2027185763}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: powerupText
       value: 
       objectReference: {fileID: 1900394520}
@@ -5152,6 +5182,10 @@ PrefabInstance:
       propertyPath: rangeUpPanel
       value: 
       objectReference: {fileID: 1769996354}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorSlot
+      value: 
+      objectReference: {fileID: 1355728862}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: nextLevelName
       value: SeekFind
@@ -5173,6 +5207,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 335258939}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorCountText
+      value: 
+      objectReference: {fileID: 540484656}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: instructionsButton
       value: 
       objectReference: {fileID: 1453154356}
@@ -5188,6 +5226,14 @@ PrefabInstance:
       propertyPath: lives.Array.data[2]
       value: 
       objectReference: {fileID: 335258940}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorUIIconTarget
+      value: 
+      objectReference: {fileID: 1355728863}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorFlyIconPrefab
+      value: 
+      objectReference: {fileID: 171241398}
     - target: {fileID: 5498135305785133343, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.990743

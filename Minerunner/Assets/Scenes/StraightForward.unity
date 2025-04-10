@@ -1748,6 +1748,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 1008388660}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: powerupText
       value: 
       objectReference: {fileID: 1445339855}
@@ -1755,6 +1759,10 @@ PrefabInstance:
       propertyPath: flagModeText
       value: 
       objectReference: {fileID: 1667044699}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorSlot
+      value: 
+      objectReference: {fileID: 786118500}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: nextLevelName
       value: Menu Screen
@@ -1776,6 +1784,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1445339857}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorCountText
+      value: 
+      objectReference: {fileID: 786118499}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: instructionsButton
       value: 
       objectReference: {fileID: 1445339858}
@@ -1791,6 +1803,14 @@ PrefabInstance:
       propertyPath: lives.Array.data[2]
       value: 
       objectReference: {fileID: 1445339859}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorUIIconTarget
+      value: 
+      objectReference: {fileID: 786118501}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorFlyIconPrefab
+      value: 
+      objectReference: {fileID: 387011458}
     - target: {fileID: 5498135305785133343, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17
@@ -1840,6 +1860,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+--- !u!1 &387011458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2086435808045568962, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+  m_PrefabInstance: {fileID: 387011457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &387959800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4195,6 +4220,27 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1674265308604705092, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
   m_PrefabInstance: {fileID: 778754507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &786118499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1047518108003873136, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1445339853}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &786118500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2148885750151886878, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1445339853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &786118501 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3100581124100007040, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1445339853}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &786159663 stripped
 Transform:

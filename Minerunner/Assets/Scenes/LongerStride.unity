@@ -691,6 +691,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1674265308604705092, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
   m_PrefabInstance: {fileID: 577319620}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &593169209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1047518108003873136, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1870089573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &593169210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2148885750151886878, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1870089573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &593169211 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3100581124100007040, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1870089573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &598247613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1627,6 +1648,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 2092601387}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: powerupText
       value: 
       objectReference: {fileID: 1870089575}
@@ -1638,6 +1663,10 @@ PrefabInstance:
       propertyPath: rangeUpPanel
       value: 
       objectReference: {fileID: 1870089582}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorSlot
+      value: 
+      objectReference: {fileID: 593169210}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: nextLevelName
       value: StraightForward
@@ -1659,6 +1688,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1870089578}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorCountText
+      value: 
+      objectReference: {fileID: 593169209}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: instructionsButton
       value: 
       objectReference: {fileID: 1870089577}
@@ -1674,6 +1707,14 @@ PrefabInstance:
       propertyPath: lives.Array.data[2]
       value: 
       objectReference: {fileID: 1870089579}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorUIIconTarget
+      value: 
+      objectReference: {fileID: 593169211}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorFlyIconPrefab
+      value: 
+      objectReference: {fileID: 1036139239}
     - target: {fileID: 5498135305785133343, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.067855
@@ -1734,6 +1775,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d08b94199d6f44458a01b44bdd26394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1036139239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2086435808045568962, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+  m_PrefabInstance: {fileID: 1036139237}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1053018908
 PrefabInstance:
   m_ObjectHideFlags: 0

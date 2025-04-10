@@ -21,6 +21,13 @@ public class uiMaster : MonoBehaviour
     public GameObject rangeUpPanel;
     public TextMeshProUGUI flagModeText;
     public string nextLevelName;
+
+    public GameObject detonatorFlyIconPrefab; 
+    public RectTransform detonatorUIIconTarget;
+    public GameObject detonatorSlot; 
+    public TextMeshProUGUI detonatorCountText; 
+    public Camera mainCam;
+
     public void loseLife()
     {
         livesRemaining --;
@@ -47,19 +54,14 @@ public class uiMaster : MonoBehaviour
 
     public void updatePowerupPanel(Dictionary<string, int> inventory)
     {
-        powerupsPanel.SetActive(!powerupsPanel.activeSelf);
-        if (inventory.Count > 0)
+        if (inventory.ContainsKey("Detonator") && inventory["Detonator"] > 0)
         {
-            powerupText.text = "";
-
-            foreach (var powerup in inventory)
-            {
-                powerupText.text += powerup.Key + " : " + powerup.Value + "\n";
-            }
+       StartCoroutine(ShowDetonatorUIWithDelay(inventory["Detonator"]));
         }
         else
         {
-            powerupsPanel.SetActive(false);
+        detonatorSlot.SetActive(false);
+        powerupsPanel.SetActive(false);
         }
     }
 
@@ -95,5 +97,46 @@ public class uiMaster : MonoBehaviour
         }
     }
 
+    
+    public void AnimateDetonatorPickupFromWorld(Vector3 worldPos)
+    {
+    Vector3 screenPos = mainCam.WorldToScreenPoint(worldPos);
 
+    GameObject icon = Instantiate(detonatorFlyIconPrefab, screenPos, Quaternion.identity, powerupsPanel.transform.parent);
+    //detonatorFlyIconPrefab.SetActive(true);
+    RectTransform iconRect = icon.GetComponent<RectTransform>();
+
+    StartCoroutine(MoveIconToTarget(iconRect, detonatorUIIconTarget));
+    }   
+
+    IEnumerator MoveIconToTarget(RectTransform icon, RectTransform target)
+    {
+    float duration = 0.7f;
+    float time = 0f;
+
+    Vector3 start = icon.position;
+    Vector3 end = target.position;
+
+    while (time < duration)
+    {
+        time += Time.deltaTime;
+        float t = time / duration;
+        icon.position = Vector3.Lerp(start, end, Mathf.SmoothStep(0, 1, t));
+        yield return null;
+    }
+
+    icon.position = end;
+    Destroy(icon.gameObject);
+
+    }
+
+    IEnumerator ShowDetonatorUIWithDelay(int count)
+    {
+    yield return new WaitForSeconds(0.6f); 
+
+    powerupsPanel.SetActive(true);
+    detonatorSlot.SetActive(true);
+    detonatorCountText.text = count.ToString();
+
+    }
 }

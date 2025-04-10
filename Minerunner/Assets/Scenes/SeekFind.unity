@@ -1859,6 +1859,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 375f0fd9268cc0e4bb27c000a7a388e1, type: 3}
+--- !u!114 &951941561 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1047518108003873136, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1275029010}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &954003076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1674265308604705092, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
@@ -2054,6 +2065,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1872354100011944154, guid: 375f0fd9268cc0e4bb27c000a7a388e1, type: 3}
   m_PrefabInstance: {fileID: 1039176464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1046989532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2086435808045568962, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+  m_PrefabInstance: {fileID: 1492839677}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1047704740
 PrefabInstance:
@@ -3366,6 +3382,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 644385822}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: powerupText
       value: 
       objectReference: {fileID: 1275029012}
@@ -3373,6 +3393,10 @@ PrefabInstance:
       propertyPath: flagModeText
       value: 
       objectReference: {fileID: 1613941082}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorSlot
+      value: 
+      objectReference: {fileID: 2048975204}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: nextLevelName
       value: Metamorphosis
@@ -3394,6 +3418,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1275029014}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorCountText
+      value: 
+      objectReference: {fileID: 951941561}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: instructionsButton
       value: 
       objectReference: {fileID: 1275029015}
@@ -3409,6 +3437,14 @@ PrefabInstance:
       propertyPath: lives.Array.data[2]
       value: 
       objectReference: {fileID: 1275029016}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorUIIconTarget
+      value: 
+      objectReference: {fileID: 2048975207}
+    - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
+      propertyPath: detonatorFlyIconPrefab
+      value: 
+      objectReference: {fileID: 1046989532}
     - target: {fileID: 5498135305785133343, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.990742
@@ -4534,6 +4570,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6294cbf08c152494c9e1bee3e45bc8f7, type: 3}
+--- !u!1 &2048975204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2148885750151886878, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1275029010}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2048975207 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3100581124100007040, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1275029010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2072892863
 PrefabInstance:
   m_ObjectHideFlags: 0
