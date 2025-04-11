@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class cursorBehaviour : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class cursorBehaviour : MonoBehaviour
     void Update()
     {
         // Toggle mode
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && (gameMaster.levelNameToNum[SceneManager.GetActiveScene().name] >= 3))
         {
             ToggleMode();
         }
