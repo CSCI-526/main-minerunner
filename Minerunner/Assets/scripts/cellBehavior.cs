@@ -166,8 +166,10 @@ public class cellBehavior : MonoBehaviour
                 gameMaster.cellsRevealed++; // Track revealed cells
             }
 
-            
-            gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+            if (!isLevel)
+            {
+                gameObject.GetComponent<MeshRenderer>().material = gameMaster.revealedMaterial;
+            }
             this.revealed = true;
 
             activateCellItems();
