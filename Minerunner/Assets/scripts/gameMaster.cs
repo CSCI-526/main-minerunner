@@ -52,6 +52,7 @@ public class gameMaster : MonoBehaviour
         {"LongerStride", 6},
         {"Metamorphosis", 7},
         {"StraightForward",8},
+        {"SkyScraper", 9 },
     };
     public Dictionary<int, string> levelNumToName = new Dictionary<int, string>()
     {
@@ -65,6 +66,7 @@ public class gameMaster : MonoBehaviour
         {6, "LongerStride" },
         {7, "Metamorphosis"},
         {8, "StraightForward" },
+        {9, "SkyScraper" },
     };
     private GameObject[] cells;
     private int totalCells;
