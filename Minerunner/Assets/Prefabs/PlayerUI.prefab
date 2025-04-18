@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9058837, b: 0.08018869, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1211,6 +1211,7 @@ GameObject:
   - component: {fileID: 3010695073712280702}
   - component: {fileID: 7865946257910035856}
   - component: {fileID: 4986393658463110689}
+  - component: {fileID: 2734933139129020762}
   m_Layer: 5
   m_Name: WinPanel
   m_TagString: Untagged
@@ -1278,6 +1279,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2734933139129020762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965187090545000376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c87a31f41544531a62fee1d80f090b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButtons:
+  - {fileID: 397410265343460599}
+  - {fileID: 2589851673295010881}
 --- !u!1 &2040890860853378505
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,7 +3364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9058837, b: 0.08018869, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3681,6 +3697,7 @@ GameObject:
   - component: {fileID: 5308780922915428910}
   - component: {fileID: 1325925054469992431}
   - component: {fileID: 8311415460294791164}
+  - component: {fileID: 1969190421953318231}
   m_Layer: 5
   m_Name: LosePanel
   m_TagString: Untagged
@@ -3748,6 +3765,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1969190421953318231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602458209152698227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c87a31f41544531a62fee1d80f090b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButtons:
+  - {fileID: 4044914296794292234}
+  - {fileID: 3634555097590261988}
 --- !u!1 &7036521716268613339
 GameObject:
   m_ObjectHideFlags: 0
