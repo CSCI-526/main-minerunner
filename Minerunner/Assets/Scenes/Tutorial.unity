@@ -122,6 +122,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &108213339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7970795554792367274, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 1489984077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931251a5b66fb4a4882dc92b06e32ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &155875883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1546,7 +1557,7 @@ PrefabInstance:
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: instructionsButton
       value: 
-      objectReference: {fileID: 1489984084}
+      objectReference: {fileID: 0}
     - target: {fileID: 5478140492668626789, guid: 7773c41882bd36a4c831b8d2a941c197, type: 3}
       propertyPath: lives.Array.data[0]
       value: 
@@ -1757,6 +1768,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 37844282448342458, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 37844282448342458, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 108213339}
+    - target: {fileID: 37844282448342458, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: toggleMinesPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 37844282448342458, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 120558236603515766, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -2010,7 +2037,7 @@ PrefabInstance:
     - target: {fileID: 6075335376769432840, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1920138704}
+      objectReference: {fileID: 108213339}
     - target: {fileID: 6075335376769432840, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: toggleTutorialPanel
@@ -2022,6 +2049,14 @@ PrefabInstance:
     - target: {fileID: 6075335376769432840, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325051676792093681, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398952791731950526, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6435869012040537126, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_Name
@@ -2043,6 +2078,22 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 31
       objectReference: {fileID: 0}
+    - target: {fileID: 6941530150662285211, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403340599682830157, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544620542277987490, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544620542277987490, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: toggleMinesPanel
+      objectReference: {fileID: 0}
     - target: {fileID: 8150407211805084815, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_Type
       value: 0
@@ -2050,7 +2101,7 @@ PrefabInstance:
     - target: {fileID: 8150407211805084815, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 63997e59fd591426f8fc3638dea1d05c, type: 3}
+      objectReference: {fileID: 21300000, guid: 887a9d58b96cf4ede87d89d3ce65fc77, type: 3}
     - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_text
       value: '1-1: Minerunning'
@@ -2096,17 +2147,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2476582623133113767, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
   m_PrefabInstance: {fileID: 1489984077}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1489984084 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4947360699119774778, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
-  m_PrefabInstance: {fileID: 1489984077}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1489984085 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 622186678367600145, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
@@ -2166,17 +2206,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2842216566697090178, guid: 75b34198aa48c0d4da56f9a80b977d99, type: 3}
   m_PrefabInstance: {fileID: 532036287}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1920138704 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7265371649328349124, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
-  m_PrefabInstance: {fileID: 1489984077}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489984078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 931251a5b66fb4a4882dc92b06e32ea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1962137491
 PrefabInstance:
   m_ObjectHideFlags: 0
