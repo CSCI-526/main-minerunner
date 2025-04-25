@@ -5824,6 +5824,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+--- !u!1 &996060727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1965187090545000376, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 996060726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &996060728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6602458209152698227, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+  m_PrefabInstance: {fileID: 996060726}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1006154476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1674265308604705092, guid: 9c214a832b5e05642a14eea691a30ba8, type: 3}
@@ -8708,11 +8718,11 @@ PrefabInstance:
     - target: {fileID: 5524346445071447121, guid: dd39e21ff78e7bb4fbdc22426675921c, type: 3}
       propertyPath: winPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 996060727}
     - target: {fileID: 5524346445071447121, guid: dd39e21ff78e7bb4fbdc22426675921c, type: 3}
       propertyPath: losePanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 996060728}
     - target: {fileID: 5524346445071447121, guid: dd39e21ff78e7bb4fbdc22426675921c, type: 3}
       propertyPath: startCell
       value: 
