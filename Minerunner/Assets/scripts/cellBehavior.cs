@@ -96,7 +96,15 @@ public class cellBehavior : MonoBehaviour
     {
         if (!empty && isLevel && gameObject.GetComponent<MeshRenderer>().material != gameMaster.endMaterial)
         {
-            gameObject.GetComponent<MeshRenderer>().material = gameMaster.endMaterial;
+            if (gameMaster.currHighestLevel + 1 > levelNum)
+            {
+                gameObject.GetComponent<MeshRenderer>().material = gameMaster.endMaterial;
+            }
+
+            if (gameMaster.currHighestLevel + 1 == levelNum)
+            {
+                gameObject.GetComponent<MeshRenderer>().material = gameMaster.startMaterial;
+            }
         }
     }
     private void Explode()

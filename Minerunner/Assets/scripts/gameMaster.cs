@@ -40,6 +40,8 @@ public class gameMaster : MonoBehaviour
     //Change this to work with data structure later
     private int levelNum;
 
+    [SerializeField] public GameObject[] levelCells;
+
     public Dictionary<string, int> levelNameToNum = new Dictionary<string, int>()
     {
         {"LevelSelectStart", -1},
