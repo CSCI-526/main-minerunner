@@ -5747,6 +5747,78 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 13.679291
       objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_colorMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.b
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.g
+      value: 0.19810398
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.r
+      value: 0.13683695
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.topRight.b
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.topRight.g
+      value: 0.19810398
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.topRight.r
+      value: 0.13683695
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.b
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.g
+      value: 0.87232995
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.r
+      value: 0.13950695
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.b
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.g
+      value: 0.87232995
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073725712882842691, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.r
+      value: 0.13950695
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9087,13 +9159,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650057202}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 49, y: 8, z: -22}
+  m_LocalRotation: {x: 0.559509, y: -0, z: -0, w: 0.82882434}
+  m_LocalPosition: {x: 49, y: 9, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 68.044, y: 0, z: 0}
 --- !u!114 &1650057206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9107,7 +9179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 182272621}
-  offset: {x: 0, y: 10, z: 2}
+  offset: {x: 0, y: 9, z: -1}
   smoothSpeed: 0.125
 --- !u!1001 &1652333595
 PrefabInstance:
