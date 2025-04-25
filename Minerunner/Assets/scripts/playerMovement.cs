@@ -19,14 +19,10 @@ public class playerMovement : MonoBehaviour
 
     void Awake()
     {
-        
-    }
-
-    void Start()
-    {
         gameMaster = FindObjectOfType<gameMaster>();
         if (gameMaster.isLevelSelect && gameMaster.currHighestLevel > 0)
         {
+            //Debug.Log("HI: " + (gameMaster.levelCells[gameMaster.currHighestLevel - 1] == null));
             GameObject levelCell = gameMaster.levelCells[gameMaster.currHighestLevel - 1];
             transform.position = levelCell.transform.position;
             playerCell = levelCell;
@@ -42,6 +38,11 @@ public class playerMovement : MonoBehaviour
         {
             movementRange = permaMoveRange;
         }
+    }
+
+    void Start()
+    {
+        
     }
 
     void Update()
