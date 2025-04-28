@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 3385279681826902898}
   - component: {fileID: 1254708116187371960}
   - component: {fileID: 3731743041970220494}
+  - component: {fileID: 8003245275934189073}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Cell
@@ -383,4 +384,19 @@ MonoBehaviour:
   isLevel: 0
   levelNum: 0
   explosionEffect: {fileID: 6707752718144811672, guid: b0e9b262e052a441da5f0f454694d75d, type: 3}
+  explosionSFXClip: {fileID: 8300000, guid: 0e3ab8bbc2c6e934b8c358bc7dfd1b14, type: 3}
+  correctSFX: {fileID: 8300000, guid: 42e7f82650467b840ac132d5c447e336, type: 3}
   flagIcon: {fileID: 1653503443926242332}
+--- !u!114 &8003245275934189073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417680685315218638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5581638f1a2773c4d86306ff9631b2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXObject: {fileID: 5975125499795903445, guid: cb18b669390966744a1f9992b54734e3, type: 3}

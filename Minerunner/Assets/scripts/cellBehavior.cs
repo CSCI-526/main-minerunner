@@ -27,6 +27,8 @@ public class cellBehavior : MonoBehaviour
     // public String levelName;
 
     public GameObject explosionEffect;
+    public AudioClip explosionSFXClip;
+    public AudioClip correctSFX;
     public GameObject flagIcon;
     private bool flagged = false;
     private GameObject[] neighbours;
@@ -112,6 +114,7 @@ public class cellBehavior : MonoBehaviour
         if (explosionEffect != null)
         {
             GameObject explosionInstance = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            SoundFXManager.instance.PlaySoundFXCLip(explosionSFXClip, this.transform, 0.05f);
             Destroy(explosionInstance, 2f);
         }
 
@@ -239,6 +242,7 @@ public class cellBehavior : MonoBehaviour
                 {
                     uiMaster.toggleObject(uiMaster.detonatorPanel);
                 }
+                SoundFXManager.instance.PlaySoundFXCLip(explosionSFXClip, this.transform, 0.25f);
                 playerBehavior.addPowerup("Detonator");
             }
             else if (powerUp == 2 && playerMovement.movementRange <= 2)
@@ -246,6 +250,7 @@ public class cellBehavior : MonoBehaviour
                 //Debug.Log("Test: " + playerMovement.movementRange);
                 uiMaster.toggleObject(powerUpImage);
                 uiMaster.toggleObject(uiMaster.rangeUpPanel);
+                SoundFXManager.instance.PlaySoundFXCLip(explosionSFXClip, this.transform, 0.09f);
                 playerMovement.addMoveRange(1);
             }
         
@@ -309,7 +314,12 @@ public class cellBehavior : MonoBehaviour
 
         if (flagIcon != null)
         {
-            flagIcon.SetActive(value); // Toggle flag icon visibility
+            
+            flagIcon.SetActive(value);// Toggle flag icon visibility
+            if (value == true)
+            {
+                SoundFXManager.instance.PlaySoundFXCLip(correctSFX, this.transform, 0.09f);
+            }
         }
     }
 

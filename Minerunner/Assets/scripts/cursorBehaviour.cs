@@ -17,6 +17,7 @@ public class cursorBehaviour : MonoBehaviour
     private GameObject player;
     private GameObject lastMovementCell;
     public enum CursorMode { Movement, Flagging }
+    public AudioClip switchSFX;
     private CursorMode currentMode = CursorMode.Movement;
     
     [SerializeField] private GameObject flagModeTextObject;     
@@ -128,6 +129,8 @@ public class cursorBehaviour : MonoBehaviour
             {
                 defCursor.SetActive(false);
                 flagCursor.SetActive(true);
+                SoundFXManager.instance.PlaySoundFXCLip(switchSFX, this.transform, 0.09f);
+
             }
 
             // Show Flag Mode Text from uiMaster
@@ -161,6 +164,7 @@ public class cursorBehaviour : MonoBehaviour
             {
                 defCursor.SetActive(true);
                 flagCursor.SetActive(false);
+                SoundFXManager.instance.PlaySoundFXCLip(switchSFX, this.transform, 0.09f);
             }
 
             // Hide the flag sprite when leaving flag mode
