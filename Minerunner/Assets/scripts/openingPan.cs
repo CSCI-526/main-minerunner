@@ -26,6 +26,7 @@ public class CinematicFlyover : MonoBehaviour
     private bool isFadingOut = false;
     private bool hasFinished = false;
     private Quaternion finalPanRotation;
+    private gameMaster gameMaster;
 
     void Start()
     {
@@ -43,11 +44,18 @@ public class CinematicFlyover : MonoBehaviour
             c.a = 1f;
             fadeImage.color = c;
         }
+
+        gameMaster = FindObjectOfType<gameMaster>();
     }
 
     void Update()
     {
-        if (hasFinished) return;
+        gameMaster.isPaused = true;
+        if (hasFinished)
+        {
+            gameMaster.isPaused = false;
+            return;
+        }
 
         if (isZooming)
         {
