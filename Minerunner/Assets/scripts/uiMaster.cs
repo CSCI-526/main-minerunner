@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class uiMaster : MonoBehaviour
 {
@@ -50,6 +51,8 @@ public class uiMaster : MonoBehaviour
     public void toggleObject(GameObject obj)
     {
         obj.SetActive(!obj.activeSelf);
+        EventSystem.current.SetSelectedGameObject(null);
+        //Debug.Log("toggleObject");
     }
 
     public void updatePowerupPanel(Dictionary<string, int> inventory)

@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class TutorialPanel : MonoBehaviour
 {
     public Button closeButton;
-    private KeyCode key = KeyCode.Return;
     public GameObject screenCanvas;
     public GameObject Movement;
     public GameObject Mines;
@@ -24,8 +23,10 @@ public class TutorialPanel : MonoBehaviour
         if (screenCanvas.activeInHierarchy) {
             gameMaster.isPaused = true;
 
-            if (Input.GetKeyDown(key)) {
+            if (Input.GetKeyDown(KeyCode.Return)) {
                 closeButton.onClick.Invoke();
+                Debug.Log("ENTER!");
+                return;
             }
        
         }
@@ -33,6 +34,7 @@ public class TutorialPanel : MonoBehaviour
 
     public void toggleTutorialPanel() {
         screenCanvas.SetActive(!screenCanvas.activeSelf);
+        Debug.Log("Unpause!");
         //worldCanvas.SetActive(!worldCanvas.activeSelf);
         gameMaster.isPaused = false;
     }

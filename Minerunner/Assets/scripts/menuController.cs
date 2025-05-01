@@ -34,6 +34,7 @@ public class menuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) // ENTER OR SPACE
         {
             menuButtons[selectedIndex].onClick.Invoke();
+            //Debug.Log("TEST!");
         }
     }
 

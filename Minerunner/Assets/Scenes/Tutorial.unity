@@ -1433,6 +1433,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2570875473937642151, guid: 1f0c3ecffcae5e145b382e3face30ab1, type: 3}
+      propertyPath: m_SubmitButton
+      value: Submit
+      objectReference: {fileID: 0}
     - target: {fileID: 6753788934012761676, guid: 1f0c3ecffcae5e145b382e3face30ab1, type: 3}
       propertyPath: m_Name
       value: EventSystem
@@ -1946,6 +1950,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadNextLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 2820043833330890553, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998101399596565226, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3010695073712280702, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.5
@@ -2004,7 +2016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5308780922915428910, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6064677565567880972, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2093,6 +2105,14 @@ PrefabInstance:
     - target: {fileID: 7544620542277987490, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: toggleMinesPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994839941673103174, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 177.17578
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994839941673103174, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -37.77661
       objectReference: {fileID: 0}
     - target: {fileID: 8150407211805084815, guid: 5ea641da15d19c54f9b517eea4ad8fcf, type: 3}
       propertyPath: m_Type
